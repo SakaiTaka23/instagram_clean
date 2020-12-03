@@ -18,6 +18,11 @@ class AppServiceProvider extends ServiceProvider
             \App\service\production\test::class
         );
 
+        // $this->app->bind(
+        //     \instagram_clean\Test_name\testinterface::class,
+        //     \instagram_clean\Test_name\production\test::class
+        // );
+
         $this->registerForInMemory();
     }
 
