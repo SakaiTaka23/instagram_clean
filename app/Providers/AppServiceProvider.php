@@ -14,14 +14,9 @@ class AppServiceProvider extends ServiceProvider
     public function register()
     {
         $this->app->bind(
-            \App\service\testinterface::class,
-            \App\service\production\test::class
+            \Hoge\HogeInterface::class,
+            \Hoge\Hoge::class
         );
-
-        // $this->app->bind(
-        //     \instagram_clean\Test_name\testinterface::class,
-        //     \instagram_clean\Test_name\production\test::class
-        // );
 
         $this->registerForInMemory();
     }

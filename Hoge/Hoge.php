@@ -1,13 +1,11 @@
 <?php
 
-namespace Hoge\Production;
-
-use Hoge\HogeInterface;
+namespace Hoge;
 
 class Hoge implements HogeInterface
 {
     public function hoho()
     {
-        return "hoho";
+        return "hohoho!";
     }
 }
