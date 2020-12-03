@@ -30,11 +30,16 @@ class PostController extends Controller
         return view('posts.create', compact('response'));
     }
 
-    public function index(PostIndexUseCaseInterface $interactor)
+    // public function index(PostIndexUseCaseInterface $interactor)
+    // {
+    //     $request = new PostIndexRequest($this->auth_id);
+    //     $response = $interactor->handle($request);
+    //     return view('posts.index', compact('response'));
+    // }
+
+    public function index()
     {
-        $request = new PostIndexRequest($this->auth_id);
-        $response = $interactor->handle($request);
-        return view('posts.index', compact('response'));
+        return view('test');
     }
 
     public function show($id, PostShowUseCaseInterface $interactor)
