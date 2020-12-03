@@ -23,7 +23,8 @@ Route::middleware(['auth', 'verified'])->get('/dashboard', function () {
     return view('dashboard');
 })->name('dashboard');
 
-Route::group(['prefix' => 'user', 'middleware' => ['auth', 'update.login']], function () {
+
+Route::group(['prefix' => 'user', 'middleware' => ['auth']], function () {
     Route::get('/', [PostController::class, 'index'])->name('PostIndex');
     Route::get('/p/create', [PostController::class, 'create'])->name('postCreate');
     Route::get('/p/{post}', [PostController::class, 'show'])->name('postShow');
