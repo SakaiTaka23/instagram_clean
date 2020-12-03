@@ -1,6 +1,6 @@
 <?php
 
-namespace packages\Usecase\Post\Store;
+namespace Packages\Usecase\Post\Store;
 
 class PostStoreResponse
 {

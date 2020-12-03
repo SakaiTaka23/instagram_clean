@@ -1,10 +1,10 @@
 <?php
 
-namespace packages\Infrastructure\Profile;
+namespace Packages\Infrastructure\Profile;
 
 use Illuminate\Support\Facades\DB;
-use packages\Domain\Domain\Profile\Profile;
-use packages\Domain\Domain\Profile\ProfileRepositoryInterface;
+use Packages\Domain\Domain\Profile\Profile;
+use Packages\Domain\Domain\Profile\ProfileRepositoryInterface;
 
 class ProfileRepository implements ProfileRepositoryInterface
 {

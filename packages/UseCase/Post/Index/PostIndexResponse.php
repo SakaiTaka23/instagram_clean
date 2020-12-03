@@ -1,6 +1,6 @@
 <?php
 
-namespace packages\UseCase\Post\Index;
+namespace Packages\UseCase\Post\Index;
 
 class PostIndexResponse
 {

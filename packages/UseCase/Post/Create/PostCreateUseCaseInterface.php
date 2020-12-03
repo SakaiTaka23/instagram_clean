@@ -1,6 +1,6 @@
 <?php
 
-namespace packages\Usecase\Post\Create;
+namespace Packages\Usecase\Post\Create;
 
 interface PostCreateUseCaseInterface
 {

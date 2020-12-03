@@ -1,11 +1,11 @@
 <?php
 
-namespace packages\Domain\Application\Post;
+namespace Packages\Domain\Application\Post;
 
-use packages\Infrastructure\Post\PostRepository;
-use packages\Usecase\Post\Store\PostStoreRequest;
-use packages\Usecase\Post\Store\PostStoreResponse;
-use packages\Usecase\Post\Store\PostStoreUseCaseInterface;
+use Packages\Infrastructure\Post\PostRepository;
+use Packages\Usecase\Post\Store\PostStoreRequest;
+use Packages\Usecase\Post\Store\PostStoreResponse;
+use Packages\Usecase\Post\Store\PostStoreUseCaseInterface;
 
 class PostStoreInteractor implements PostStoreUseCaseInterface
 {

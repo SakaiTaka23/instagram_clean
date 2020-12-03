@@ -1,11 +1,11 @@
 <?php
 
-namespace packages\Domain\Application\Post;
+namespace Packages\Domain\Application\Post;
 
-use packages\Domain\Domain\Post\PostRepositoryInterface;
-use packages\Usecase\Post\Show\PostShowRequest;
-use packages\Usecase\Post\Show\PostShowResponse;
-use packages\Usecase\Post\Show\PostShowUseCaseInterface;
+use Packages\Domain\Domain\Post\PostRepositoryInterface;
+use Packages\Usecase\Post\Show\PostShowRequest;
+use Packages\Usecase\Post\Show\PostShowResponse;
+use Packages\Usecase\Post\Show\PostShowUseCaseInterface;
 
 class PostShowInteractor implements PostShowUseCaseInterface
 {

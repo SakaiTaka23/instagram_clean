@@ -13,6 +13,11 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register()
     {
+        $this->app->bind(
+            \App\service\testinterface::class,
+            \App\service\production\test::class
+        );
+
         $this->registerForInMemory();
     }
 
@@ -29,43 +34,43 @@ class AppServiceProvider extends ServiceProvider
     private function registerForInMemory()
     {
         $this->app->singleton(
-            \packages\Domain\Domain\Post\PostRepositoryInterface::class,
-            \packages\Infrastructure\Post\PostRepository::class
+            \Packages\Domain\Domain\Post\PostRepositoryInterface::class,
+            \Packages\Infrastructure\Post\PostRepository::class
         );
 
         $this->app->singleton(
-            \packages\Domain\Domain\Profile\ProfileRepositoryInterface::class,
-            \packages\Infrastructure\Profile\ProfileRepository::class
+            \Packages\Domain\Domain\Profile\ProfileRepositoryInterface::class,
+            \Packages\Infrastructure\Profile\ProfileRepository::class
         );
 
         $this->app->singleton(
-            \packages\Domain\Domain\User\UserRepositoryInterface::class,
-            \packages\Infrastructure\User\UserRepository::class
+            \Packages\Domain\Domain\User\UserRepositoryInterface::class,
+            \Packages\Infrastructure\User\UserRepository::class
         );
 
         $this->app->bind(
-            \packages\UseCase\Post\Create\PostCreateUseCaseInterface::class,
-            \packages\Domain\Application\Post\PostCreateInteractor::class
+            \Packages\UseCase\Post\Create\PostCreateUseCaseInterface::class,
+            \Packages\Domain\Application\Post\PostCreateInteractor::class
         );
 
         $this->app->bind(
-            \packages\UseCase\Post\Index\PostIndexUseCaseInterface::class,
-            \packages\Domain\Application\Post\PostIndexInteractor::class
+            \Packages\UseCase\Post\Index\PostIndexUseCaseInterface::class,
+            \Packages\Domain\Application\Post\PostIndexInteractor::class
         );
 
         $this->app->bind(
-            \packages\UseCase\Post\Show\PostShowUseCaseInterface::class,
-            \packages\Domain\Application\Post\PostShowInteractor::class
+            \Packages\UseCase\Post\Show\PostShowUseCaseInterface::class,
+            \Packages\Domain\Application\Post\PostShowInteractor::class
         );
 
         $this->app->bind(
-            \packages\UseCase\Post\Store\PostStoreUseCaseInterface::class,
-            \packages\Domain\Application\Post\PostStoreInteractor::class
+            \Packages\UseCase\Post\Store\PostStoreUseCaseInterface::class,
+            \Packages\Domain\Application\Post\PostStoreInteractor::class
         );
 
         $this->app->bind(
-            \packages\UseCase\Profile\Index\ProfileIndexUseCaseInterface::class,
-            \packages\Domain\Application\Profile\ProfileIndexInteractor::class
+            \Packages\UseCase\Profile\Index\ProfileIndexUseCaseInterface::class,
+            \Packages\Domain\Application\Profile\ProfileIndexInteractor::class
         );
     }
 }

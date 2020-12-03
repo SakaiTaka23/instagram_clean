@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\TestController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -23,6 +24,7 @@ Route::middleware(['auth', 'verified'])->get('/dashboard', function () {
     return view('dashboard');
 })->name('dashboard');
 
+Route::get('/test',[TestController::class,'index']);
 
 Route::group(['prefix' => 'user', 'middleware' => ['auth']], function () {
     Route::get('/', [PostController::class, 'index'])->name('PostIndex');

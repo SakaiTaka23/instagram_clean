@@ -1,6 +1,6 @@
 <?php
 
-namespace packages\Usecase\Post\Index;
+namespace Packages\Usecase\Post\Index;
 
 interface PostIndexUseCaseInterface
 {

@@ -1,11 +1,11 @@
 <?php
 
-namespace packages\Domain\Application\Post;
+namespace Packages\Domain\Application\Post;
 
-use packages\Domain\Domain\Post\PostRepositoryInterface;
-use packages\Usecase\Post\Index\PostIndexRequest;
-use packages\UseCase\Post\Index\PostIndexResponse;
-use packages\Usecase\Post\Index\PostIndexUseCaseInterface;
+use Packages\Domain\Domain\Post\PostRepositoryInterface;
+use Packages\Usecase\Post\Index\PostIndexRequest;
+use Packages\UseCase\Post\Index\PostIndexResponse;
+use Packages\Usecase\Post\Index\PostIndexUseCaseInterface;
 
 class PostIndexInteractor implements PostIndexUseCaseInterface
 {

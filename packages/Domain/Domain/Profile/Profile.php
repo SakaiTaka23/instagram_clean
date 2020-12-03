@@ -1,6 +1,6 @@
 <?php
 
-namespace packages\Domain\Domain\Profile;
+namespace Packages\Domain\Domain\Profile;
 
 class Profile
 {

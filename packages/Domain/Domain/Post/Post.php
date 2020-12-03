@@ -1,6 +1,6 @@
 <?php
 
-namespace packages\Domain\Domain\Post;
+namespace Packages\Domain\Domain\Post;
 
 
 class Post

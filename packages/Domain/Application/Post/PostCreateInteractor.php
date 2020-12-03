@@ -1,11 +1,11 @@
 <?php
 
-namespace packages\Domain\Application\Post;
+namespace Packages\Domain\Application\Post;
 
-use packages\Domain\Domain\Post\PostRepositoryInterface;
-use packages\Usecase\Post\Create\PostCreateResponse;
-use packages\Usecase\Post\Create\PostCreateResquest;
-use packages\Usecase\Post\Create\PostCreateUseCaseInterface;
+use Packages\Domain\Domain\Post\PostRepositoryInterface;
+use Packages\Usecase\Post\Create\PostCreateResponse;
+use Packages\Usecase\Post\Create\PostCreateResquest;
+use Packages\Usecase\Post\Create\PostCreateUseCaseInterface;
 
 class PostCreateInteractor implements PostCreateUseCaseInterface
 {

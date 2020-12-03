@@ -1,12 +1,12 @@
 <?php
 
-namespace packages\Infrastructure\Post;
+namespace Packages\Infrastructure\Post;
 
 use Illuminate\Support\Facades\DB;
 use Intervention\Image\Facades\Image;
 
-use packages\Domain\Domain\Post\Post;
-use packages\Domain\Domain\Post\PostRepositoryInterface;
+use Packages\Domain\Domain\Post\Post;
+use Packages\Domain\Domain\Post\PostRepositoryInterface;
 
 class PostRepository implements PostRepositoryInterface
 {

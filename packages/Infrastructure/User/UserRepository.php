@@ -1,9 +1,9 @@
 <?php
 
-namespace packages\Infrastructure\User;
+namespace Packages\Infrastructure\User;
 
 use Illuminate\Support\Facades\DB;
-use packages\Domain\Domain\User\UserRepositoryInterface;
+use Packages\Domain\Domain\User\UserRepositoryInterface;
 
 class UserRepository implements UserRepositoryInterface
 {
