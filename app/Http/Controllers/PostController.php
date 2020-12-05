@@ -2,6 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Models\Post\Create\PostCreateViewModel;
+use App\Http\Models\Post\Index\PostIndexViewModel;
+use App\Http\Models\Post\Show\PostShowViewModel;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Packages\UseCase\Post\Create\PostCreateRequest;
@@ -27,21 +30,24 @@ class PostController extends Controller
     {
         $request = new PostCreateRequest();
         $response = $interactor->handle($request);
-        return view('posts.create', compact('response'));
+        $viewModel = new PostCreateViewModel($response);
+        return view('posts.create', compact('viewModel'));
     }
 
     public function index(PostIndexUseCaseInterface $interactor)
     {
         $request = new PostIndexRequest($this->auth_id);
         $response = $interactor->handle($request);
-        return view('posts.index', compact('response'));
+        $viewModel = new PostIndexViewModel($response);
+        return view('posts.index', compact('viewModel'));
     }
 
     public function show($id, PostShowUseCaseInterface $interactor)
     {
         $request = new PostShowRequest($id);
         $response = $interactor->handle($request);
-        return view('posts.show', compact('response'));
+        $viewModel = new PostShowViewModel($request);
+        return view('posts.show', compact('viewModel'));
     }
 
     public function store($id, Request $request, PostStoreUseCaseInterface $interactor)
