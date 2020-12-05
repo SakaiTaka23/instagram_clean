@@ -1,8 +1,8 @@
 <?php
 
-namespace Packages\Usecase\Post\Create;
+namespace Packages\UseCase\Post\Create;
 
-class PostCreateResquest
+class PostCreateRequest
 {
     public function __construct()
     {

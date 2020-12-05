@@ -1,6 +1,6 @@
 <?php
 
-namespace Packages\Usecase\Profile\Index;
+namespace Packages\UseCase\Profile\Index;
 
 class ProfileIndexResponse
 {

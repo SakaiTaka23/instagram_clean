@@ -1,6 +1,6 @@
 <?php
 
-namespace Packages\Usecase\Post\Show;
+namespace Packages\UseCase\Post\Show;
 
 class PostShowResponse
 {

@@ -1,6 +1,6 @@
 <?php
 
-namespace Packages\Usecase\Post\Store;
+namespace Packages\UseCase\Post\Store;
 
 interface PostStoreUseCaseInterface
 {
