@@ -31,6 +31,7 @@ class PostController extends Controller
         $request = new PostCreateRequest();
         $response = $interactor->handle($request);
         $viewModel = new PostCreateViewModel($response);
+        dd($viewModel->infos);
         return view('posts.create', compact('viewModel'));
     }
 
@@ -39,6 +40,7 @@ class PostController extends Controller
         $request = new PostIndexRequest($this->auth_id);
         $response = $interactor->handle($request);
         $viewModel = new PostIndexViewModel($response);
+        dd($viewModel);
         return view('posts.index', compact('viewModel'));
     }
 
@@ -47,6 +49,7 @@ class PostController extends Controller
         $request = new PostShowRequest($id);
         $response = $interactor->handle($request);
         $viewModel = new PostShowViewModel($request);
+        dd($viewModel);
         return view('posts.show', compact('viewModel'));
     }
 
