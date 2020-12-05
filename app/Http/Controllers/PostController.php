@@ -31,7 +31,7 @@ class PostController extends Controller
         $request = new PostCreateRequest();
         $response = $interactor->handle($request);
         $viewModel = new PostCreateViewModel($response);
-        dd($viewModel->infos);
+        // dd($viewModel->infos);
         return view('posts.create', compact('viewModel'));
     }
 
@@ -53,9 +53,9 @@ class PostController extends Controller
         return view('posts.show', compact('viewModel'));
     }
 
-    public function store($id, Request $request, PostStoreUseCaseInterface $interactor)
+    public function store(Request $request, PostStoreUseCaseInterface $interactor)
     {
-        $request = new PostStoreRequest($id, $request->caption, $request->photo);
+        $request = new PostStoreRequest($this->auth_id, $request->caption, request('image'));
         $response = $interactor->handle($request);
         return redirect('show', ['id' => $response]);
     }

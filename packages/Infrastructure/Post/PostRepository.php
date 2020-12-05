@@ -30,6 +30,7 @@ class PostRepository implements PostRepositoryInterface
                 ['caption' => $post->getCaption()],
                 ['post_photo_path' => $post->getPostPhotoPath()],
             );
+        dd("ok");
     }
 
     public function storeImage($image)
