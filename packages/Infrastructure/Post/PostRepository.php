@@ -12,19 +12,19 @@ class PostRepository implements PostRepositoryInterface
 {
     public function find_from_userid($UserId)
     {
-        $post = DB::table('post')->where('user_id', $UserId)->get();
+        $post = DB::table('posts')->where('user_id', $UserId)->get();
         return $post;
     }
 
     public function find_from_postid($PostId)
     {
-        $post = DB::table('post')->where('id', $PostId)->first();
+        $post = DB::table('posts')->where('id', $PostId)->first();
         return $post;
     }
 
     public function save(Post $post)
     {
-        DB::table('post')
+        DB::table('posts')
             ->updateOrInsert(
                 ['user_id' => $post->getUserId()],
                 ['caption' => $post->getCaption()],
