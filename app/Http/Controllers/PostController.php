@@ -4,14 +4,14 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use packages\Usecase\Post\Create\PostCreateResquest;
-use packages\Usecase\Post\Create\PostCreateUseCaseInterface;
-use Packages\Usecase\Post\Index\PostIndexRequest;
-use Packages\Usecase\Post\Index\PostIndexUseCaseInterface;
-use packages\Usecase\Post\Show\PostShowRequest;
-use packages\Usecase\Post\Show\PostShowUseCaseInterface;
-use packages\Usecase\Post\Store\PostStoreUseCaseInterface;
-use packages\Usecase\Post\Store\PostStoreRequest;
+use Packages\UseCase\Post\Create\PostCreateRequest;
+use Packages\UseCase\Post\Create\PostCreateUseCaseInterface;
+use Packages\UseCase\Post\Index\PostIndexRequest;
+use Packages\UseCase\Post\Index\PostIndexUseCaseInterface;
+use Packages\UseCase\Post\Show\PostShowRequest;
+use Packages\UseCase\Post\Show\PostShowUseCaseInterface;
+use Packages\UseCase\Post\Store\PostStoreUseCaseInterface;
+use Packages\UseCase\Post\Store\PostStoreRequest;
 
 class PostController extends Controller
 {
@@ -25,7 +25,7 @@ class PostController extends Controller
 
     public function create(PostCreateUseCaseInterface $interactor)
     {
-        $request = new PostCreateResquest();
+        $request = new PostCreateRequest();
         $response = $interactor->handle($request);
         return view('posts.create', compact('response'));
     }
@@ -36,11 +36,6 @@ class PostController extends Controller
         $response = $interactor->handle($request);
         return view('posts.index', compact('response'));
     }
-
-    // public function index()
-    // {
-    //     return view('test');
-    // }
 
     public function show($id, PostShowUseCaseInterface $interactor)
     {
