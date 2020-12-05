@@ -37,6 +37,23 @@ php artisan serve
 | /profile/{user}/edit | get      | edit       | profile    |
 | /profile/{user}      | patch    | update     | profile    |
 
+※全てにuserがプリフィックスとして付き、ログインが必要
+
+
+
+## ビューに渡す要素
+
+| route               | value needed                         |
+| ------------------- | ------------------------------------ |
+| follow/{user}       | -                                    |
+| /                   | そのユーザー、そのフォロー相手の投稿 |
+| /p/create           | -　投稿フォームを渡すだけ            |
+| /p/{post} | 投稿一枚分の情報 |
+| /p                  | -                                    |
+| /profile/{user}     | そのユーザーのプロフィール情報全て   |
+| /profile{user}/edit | 同上                                 |
+| /profile/{user}     | -                                    |
+
 
 
 ## モデル
@@ -115,8 +132,8 @@ php artisan serve
 ### ユーザー
 
 * プロフィール表示@index
-* プロフィールの修正→jetstream
-* プロフィールのアップデート→jetstream
+* プロフィールの修正@edit
+* プロフィールのアップデート@update
 
 
 
@@ -155,7 +172,7 @@ php artisan serve
 
 ## TODO
 
-* view modelの作成
-* 動作確認
-  * usernameがusersテーブルに必要ない気がする→profilesへ移動？→それにそってリポジトリなども変更
+* view modelをルートによって調整
+* プロフィールのルートを調整、read,updateの実装
+* Readmeに全体の構造の詳細を記入
 
