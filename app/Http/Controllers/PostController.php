@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Http\Models\Post\Create\PostCreateViewModel;
-use App\Http\Models\Post\Show\PostShowViewModel;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Packages\UseCase\Post\Create\PostCreateRequest;
@@ -28,9 +27,7 @@ class PostController extends Controller
     public function create(PostCreateUseCaseInterface $interactor)
     {
         $request = new PostCreateRequest();
-        $response = $interactor->handle($request);
-        $viewModel = new PostCreateViewModel($response);
-        return view('posts.create', compact('viewModel'));
+        $interactor->handle($request);
     }
 
     public function index(PostIndexUseCaseInterface $interactor)

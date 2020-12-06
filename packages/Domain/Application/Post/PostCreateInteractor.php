@@ -2,20 +2,21 @@
 
 namespace Packages\Domain\Application\Post;
 
-use Packages\Domain\Domain\Post\PostRepositoryInterface;
+use Packages\UseCase\Post\Create\PostCreatePresenterInterface;
 use Packages\UseCase\Post\Create\PostCreateRequest;
 use Packages\UseCase\Post\Create\PostCreateResponse;
 use Packages\UseCase\Post\Create\PostCreateUseCaseInterface;
 
 class PostCreateInteractor implements PostCreateUseCaseInterface
 {
-    public function __construct(PostRepositoryInterface $postRepository)
+    public function __construct(PostCreatePresenterInterface $presenter)
     {
-        $this->postRepository = $postRepository;
+        $this->presenter = $presenter;
     }
 
     public function handle(PostCreateRequest $request)
     {
-        return new PostCreateResponse();
+        $response = new PostCreateResponse($request);
+        $this->presenter->output($response);
     }
 }

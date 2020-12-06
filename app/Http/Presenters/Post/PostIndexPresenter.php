@@ -17,7 +17,6 @@ class PostIndexPresenter implements PostIndexPresenterInterface
     public function output(PostIndexResponse $outputData)
     {
         $viewModel = new PostIndexViewModel($outputData);
-        dd($viewModel);
-        $this->middleware->setData(view('post.index', compact('viewModel')));
+        $this->middleware->setData(view('test', compact('viewModel')));
     }
 }
