@@ -57,6 +57,7 @@ class PostController extends Controller
     {
         $request = new PostStoreRequest($this->auth_id, $request->caption, request('image'));
         $response = $interactor->handle($request);
-        return redirect('show', ['id' => $response]);
+        // dd($response->getstoredImageId(),gettype($response->getstoredImageId()));
+        return redirect(route('postShow', ['post' => $response->getstoredImageId()]));
     }
 }

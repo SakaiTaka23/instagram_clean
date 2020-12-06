@@ -10,27 +10,27 @@ use Packages\Domain\Domain\Post\PostRepositoryInterface;
 
 class PostRepository implements PostRepositoryInterface
 {
-    public function find_from_userid($UserId)
+    public function find_from_userid(int $UserId)
     {
         $post = DB::table('posts')->where('user_id', $UserId)->get();
         return $post;
     }
 
-    public function find_from_postid($PostId)
+    public function find_from_postid(int $PostId)
     {
         $post = DB::table('posts')->where('id', $PostId)->first();
         return $post;
     }
 
-    public function save(Post $post)
+    public function create_post_get_id(Post $post)
     {
-        DB::table('posts')
-            ->updateOrInsert(
-                ['user_id' => $post->getUserId()],
-                ['caption' => $post->getCaption()],
-                ['post_photo_path' => $post->getPostPhotoPath()],
-            );
-        dd("ok");
+        $id = DB::table('posts')
+            ->insertGetId([
+                'user_id' => $post->getUserId(),
+                'caption' => $post->getCaption(),
+                'post_photo_path' => $post->getPostPhotoPath(),
+            ]);
+        return $id;
     }
 
     public function storeImage($image)
