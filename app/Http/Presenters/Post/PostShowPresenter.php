@@ -17,7 +17,6 @@ class PostShowPresenter implements PostShowPresenterInterface
     public function output(PostShowResponse $outputData)
     {
         $viewModel = new PostShowViewModel($outputData);
-        dd($viewModel);
-        $this->middleware->setData(view('post.show', compact('viewModel')));
+        $this->middleware->setData(view('test', compact('viewModel')));
     }
 }

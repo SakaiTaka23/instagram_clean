@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Models\Post\Create\PostCreateViewModel;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Packages\UseCase\Post\Create\PostCreateRequest;
@@ -45,7 +44,6 @@ class PostController extends Controller
     public function store(Request $request, PostStoreUseCaseInterface $interactor)
     {
         $request = new PostStoreRequest($this->auth_id, $request->caption, request('image'));
-        $response = $interactor->handle($request);
-        return redirect(route('post.show', ['post' => $response->getstoredImageId()]));
+        $interactor->handle($request);
     }
 }
