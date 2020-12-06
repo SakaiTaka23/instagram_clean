@@ -19,7 +19,7 @@ class PostStoreInteractor implements PostStoreUseCaseInterface
     {
         $image = $request->getPhoto();
         $image_path = $this->postRepository->storeImage($image);
-        $created_post = new Post(0, $request->getUserId(), $request->getCaption(), $image_path);
+        $created_post = new Post(0, $request->getUserId(), $request->getCaption(), $image_path, now(), now());
         $id = $this->postRepository->create_post_get_id($created_post);
         return new PostStoreResponse($id);
     }

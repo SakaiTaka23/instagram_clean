@@ -31,7 +31,6 @@ class PostController extends Controller
         $request = new PostCreateRequest();
         $response = $interactor->handle($request);
         $viewModel = new PostCreateViewModel($response);
-        // dd($viewModel->infos);
         return view('posts.create', compact('viewModel'));
     }
 
@@ -49,7 +48,7 @@ class PostController extends Controller
         $request = new PostShowRequest($id);
         $response = $interactor->handle($request);
         $viewModel = new PostShowViewModel($request);
-        dd($viewModel);
+        dd("ok",$viewModel);
         return view('posts.show', compact('viewModel'));
     }
 
@@ -57,7 +56,6 @@ class PostController extends Controller
     {
         $request = new PostStoreRequest($this->auth_id, $request->caption, request('image'));
         $response = $interactor->handle($request);
-        // dd($response->getstoredImageId(),gettype($response->getstoredImageId()));
-        return redirect(route('postShow', ['post' => $response->getstoredImageId()]));
+        return redirect(route('post.show', ['post' => $response->getstoredImageId()]));
     }
 }

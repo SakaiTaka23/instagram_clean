@@ -29,6 +29,8 @@ class PostRepository implements PostRepositoryInterface
                 'user_id' => $post->getUserId(),
                 'caption' => $post->getCaption(),
                 'post_photo_path' => $post->getPostPhotoPath(),
+                'created_at' => $post->getCreatedAt(),
+                'updated_at' => $post->getUpdatedAt(),
             ]);
         return $id;
     }

@@ -8,7 +8,7 @@
     <div class='w-full overflow-hidden rounded-lg shadow-xs'>
         <div class='w-full overflow-x-auto'>
             {{-- {{ $viewModel->infos }} --}}
-            <form action="/user/p" enctype="multipart/form-data" method="post">
+            <form action="{{ route('post.store') }}" enctype="multipart/form-data" method="POST">
                 @csrf
 
                 <div class="row">
