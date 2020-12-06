@@ -15,6 +15,6 @@ class PostStorePresenter implements PostStorePresenterInterface
 
     public function output(PostStoreResponse $outputData)
     {
-        $this->middleware->setData(redirect(route('test', ['post' => $outputData->getstoredImageId()])));
+        $this->middleware->setData(redirect(route('post.show', ['post' => $outputData->getstoredImageId()])));
     }
 }

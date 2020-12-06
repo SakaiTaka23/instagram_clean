@@ -56,6 +56,11 @@ class AppServiceProvider extends ServiceProvider
             \App\Http\Presenters\Post\PostShowPresenter::class
         );
 
+        $this->app->bind(
+            \Packages\UseCase\Post\Store\PostStorePresenterInterface::class,
+            \App\Http\Presenters\Post\PostStorePresenter::class
+        );
+
         $this->app->singleton(\App\Http\Middleware\CleanArchitectureMiddleware::class);
     }
 

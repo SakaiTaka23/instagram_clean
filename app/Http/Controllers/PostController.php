@@ -44,6 +44,8 @@ class PostController extends Controller
     public function store(Request $request, PostStoreUseCaseInterface $interactor)
     {
         $request = new PostStoreRequest($this->auth_id, $request->caption, request('image'));
+        // $response = $interactor->handle($request);
+        // return redirect(route('post.show', ['post' => $response->getstoredImageId()]));
         $interactor->handle($request);
     }
 }

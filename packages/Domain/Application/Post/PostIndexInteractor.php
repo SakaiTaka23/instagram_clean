@@ -22,6 +22,5 @@ class PostIndexInteractor implements PostIndexUseCaseInterface
         $posts = $this->postRepository->find_from_userid($userId);
         $response = new PostIndexResponse($posts);
         $this->presenter->output($response);
-        // return new PostIndexResponse($posts);
     }
 }
