@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Http\Models\Post\Create\PostCreateViewModel;
-use App\Http\Models\Post\Index\PostIndexViewModel;
 use App\Http\Models\Post\Show\PostShowViewModel;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -43,10 +42,7 @@ class PostController extends Controller
     public function show($id, PostShowUseCaseInterface $interactor)
     {
         $request = new PostShowRequest($id);
-        $response = $interactor->handle($request);
-        $viewModel = new PostShowViewModel($request);
-        dd("ok",$viewModel);
-        return view('posts.show', compact('viewModel'));
+        $interactor->handle($request);
     }
 
     public function store(Request $request, PostStoreUseCaseInterface $interactor)
