@@ -37,10 +37,7 @@ class PostController extends Controller
     public function index(PostIndexUseCaseInterface $interactor)
     {
         $request = new PostIndexRequest($this->auth_id);
-        $response = $interactor->handle($request);
-        $viewModel = new PostIndexViewModel($response);
-        dd($viewModel);
-        return view('posts.index', compact('viewModel'));
+        $interactor->handle($request);
     }
 
     public function show($id, PostShowUseCaseInterface $interactor)
