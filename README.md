@@ -41,6 +41,22 @@ php artisan serve
 
 
 
+### PostController
+
+| Verb      | UrI              | Action  |
+| --------- | ---------------- | ------- |
+| GET       | /post            | index   |
+| GET       | /post/create     | create  |
+| POST      | /post            | store   |
+| GET       | post/{post}      | show    |
+| GET       | post/{post}/edit | edit    |
+| PUT/PATCH | post/{post}      | update  |
+| DELETE    | post/{post}      | destroy |
+
+※全てログイン必須
+
+
+
 ## ビューに渡す要素
 
 | route               | value needed                         |
@@ -126,7 +142,7 @@ php artisan serve
 
 * 一覧表示@index
 * 詳細表示@show
-* 作成(投稿)@create
+* 作成(投稿)@create (更新不可)
 * 保存@store
 
 ### ユーザー
