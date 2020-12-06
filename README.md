@@ -29,10 +29,6 @@ php artisan serve
 | ルート               | メソッド | アクション | controller |
 | -------------------- | -------- | ---------- | ---------- |
 | follow/{user}        | post     | store      | user       |
-| /                    | get      | index      | post       |
-| /p/create            | get      | create     | post       |
-| /p/{post}            | get      | show       | post       |
-| /p                   | post     | store      | post       |
 | /profile/{user}      | get      | show       | profile    |
 | /profile/{user}/edit | get      | edit       | profile    |
 | /profile/{user}      | patch    | update     | profile    |
@@ -54,6 +50,8 @@ php artisan serve
 | DELETE    | post/{post}      | destroy |
 
 ※全てログイン必須
+
+※index,create,store,showは実装済み
 
 
 
@@ -188,7 +186,10 @@ php artisan serve
 
 ## TODO
 
-* view modelをルートによって調整
+* それぞれのルート特にposts.indexの返り値調整(返り値が入れ子になっている)
+  * 渡すときにクラスを入れ替えるようにする？毎回？
+* postsの残りのルート実装
+* viewの仮作成
 * プロフィールのルートを調整、read,updateの実装
 * Readmeに全体の構造の詳細を記入
 
