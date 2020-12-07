@@ -13,7 +13,7 @@ class CleanArchitectureMiddleware
         $this->router = $router;
     }
 
-    public function setData($data):void
+    public function setData($data): void
     {
         $this->data = $data;
     }
@@ -27,7 +27,7 @@ class CleanArchitectureMiddleware
     public function handle(Request $request, Closure $next)
     {
         $response = $next($request);
-        if ($this->data === null) {
+        if (!property_exists($this, 'data') || $this->data === null) {
             return $response;
         }
 
