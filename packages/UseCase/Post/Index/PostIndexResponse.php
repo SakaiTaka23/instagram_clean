@@ -10,4 +10,9 @@ class PostIndexResponse
     {
         $this->posts = $posts;
     }
+
+    public function getPosts()
+    {
+        return $this->posts;
+    }
 }

@@ -10,7 +10,7 @@ use Packages\Usecase\Post\Index\PostIndexUseCaseInterface;
 
 class PostIndexInteractor implements PostIndexUseCaseInterface
 {
-    public function __construct(PostRepositoryInterface $postRepository,PostIndexPresenterInterface $presenter)
+    public function __construct(PostRepositoryInterface $postRepository, PostIndexPresenterInterface $presenter)
     {
         $this->postRepository = $postRepository;
         $this->presenter = $presenter;
