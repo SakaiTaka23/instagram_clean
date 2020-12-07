@@ -162,15 +162,6 @@ php artisan serve
 
 
 
-### Gateways
-
-* packages\Domain\Domain\$model\\$model RepositoryInterface
-* packages\Infrastructure\\$model\\$model Repository
-
-* モデル->save()としても良いと思うがDBファーサードを使った方が依存関係としては良い？
-
-
-
 ### UseCases
 
 * コントローラーから送られる報をもとに独自のリクエストクラスを作成
@@ -181,6 +172,33 @@ php artisan serve
 * create時viewを渡すだけだからリクエスト、リスポンスはクラスのみで空
 * post create interacterのセーブ時にどうするか考えておくこと
   * モデルを作成した場合コンストラクタがない、しかし、ない場合作成することが難しい？
+
+
+
+### Controllers
+
+* 定位置に存在
+* リクエストをもとにUse Casesが必要な形に整形する
+
+
+
+### Gateways
+
+* packages\Domain\Domain\$model\\$model RepositoryInterface
+* packages\Infrastructure\\$model\\$model Repository
+* モデル->save()としても良いと思うがDBファーサードを使った方が依存関係としては良い？
+
+
+
+### Presenters
+
+* app/Http/Presenters
+* Usecases/〇〇PresenterInterface
+* Use Caseから受け取ったリスポンスをもとにView Modelクラスが望む形に整形してクラスを作成し、ビューを返す
+
+
+
+
 
 
 
