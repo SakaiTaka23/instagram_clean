@@ -6,7 +6,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Packages\UseCase\Post\Create\PostCreateRequest;
 use Packages\UseCase\Post\Create\PostCreateUseCaseInterface;
-use packages\UseCase\Post\Edit\PostEditUseCaseInterface;
+use Packages\UseCase\Post\Edit\PostEditRequest;
+use Packages\UseCase\Post\Edit\PostEditUseCaseInterface;
 use Packages\UseCase\Post\Index\PostIndexRequest;
 use Packages\UseCase\Post\Index\PostIndexUseCaseInterface;
 use Packages\UseCase\Post\Show\PostShowRequest;
@@ -30,8 +31,10 @@ class PostController extends Controller
         $interactor->handle($request);
     }
 
-    public function edit(PostEditUseCaseInterface $interactor)
+    public function edit($id,PostEditUseCaseInterface $interactor)
     {
+        $request = new PostEditRequest($id);
+        $interactor->handle($request);
     }
 
     public function index(PostIndexUseCaseInterface $interactor)

@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Http\Models\Post\Show;
+namespace App\Http\Models\Post\Edit;
 
 use App\Http\Models\Post\Commons\PostViewModel;
 
-class PostShowViewModel
+class PostEditViewModel
 {
     public function __construct(PostViewModel $post)
     {

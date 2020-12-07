@@ -1,6 +1,6 @@
 <?php
 
-namespace packages\UseCase\Post\Edit;
+namespace Packages\UseCase\Post\Edit;
 
 interface PostEditPresenterInterface
 {

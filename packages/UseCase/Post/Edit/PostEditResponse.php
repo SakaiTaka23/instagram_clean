@@ -1,13 +1,18 @@
 <?php
 
-namespace packages\UseCase\Post\Edit;
+namespace Packages\UseCase\Post\Edit;
 
-use packages\UseCase\Post\Commons\PostModel;
+use Packages\Domain\Domain\Post\Post;
 
 class PostEditResponse
 {
-    public function __construct(PostModel $post)
+    public function __construct(Post $post)
     {
         $this->post = $post;
+    }
+
+    public function getPost()
+    {
+        return $this->post;
     }
 }
