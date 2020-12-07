@@ -1,9 +1,8 @@
 <?php
 
-namespace Packages\Domain\Domain\Post;
+namespace packages\UseCase\Post\Commons;
 
-
-class Post
+class PostModel
 {
     public function __construct(int $id, int $user_id, string $caption, string $post_photo_path, string $created_at, string $updated_at)
     {

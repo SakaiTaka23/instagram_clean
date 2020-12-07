@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Packages\UseCase\Post\Create\PostCreateRequest;
 use Packages\UseCase\Post\Create\PostCreateUseCaseInterface;
+use packages\UseCase\Post\Edit\PostEditUseCaseInterface;
 use Packages\UseCase\Post\Index\PostIndexRequest;
 use Packages\UseCase\Post\Index\PostIndexUseCaseInterface;
 use Packages\UseCase\Post\Show\PostShowRequest;
@@ -29,6 +30,10 @@ class PostController extends Controller
         $interactor->handle($request);
     }
 
+    public function edit(PostEditUseCaseInterface $interactor)
+    {
+    }
+
     public function index(PostIndexUseCaseInterface $interactor)
     {
         $request = new PostIndexRequest($this->auth_id);
@@ -44,8 +49,6 @@ class PostController extends Controller
     public function store(Request $request, PostStoreUseCaseInterface $interactor)
     {
         $request = new PostStoreRequest($this->auth_id, $request->caption, request('image'));
-        // $response = $interactor->handle($request);
-        // return redirect(route('post.show', ['post' => $response->getstoredImageId()]));
         $interactor->handle($request);
     }
 }

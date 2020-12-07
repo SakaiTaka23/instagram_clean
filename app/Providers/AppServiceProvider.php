@@ -22,6 +22,11 @@ class AppServiceProvider extends ServiceProvider
         );
 
         $this->app->bind(
+            \Packages\UseCase\Post\Edit\PostEditUseCaseInterface::class,
+            \Packages\Domain\Application\Post\PostEditInteractor::class
+        );
+
+        $this->app->bind(
             \Packages\UseCase\Post\Index\PostIndexUseCaseInterface::class,
             \Packages\Domain\Application\Post\PostIndexInteractor::class
         );
@@ -44,6 +49,11 @@ class AppServiceProvider extends ServiceProvider
         $this->app->bind(
             \Packages\UseCase\Post\Create\PostCreatePresenterInterface::class,
             \App\Http\Presenters\Post\PostCreatePresenter::class
+        );
+
+        $this->app->bind(
+            \Packages\UseCase\Post\Edit\PostEditPresenterInterface::class,
+            \App\Http\Presenters\Post\PostEditPresenter::class
         );
 
         $this->app->bind(
