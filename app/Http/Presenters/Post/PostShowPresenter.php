@@ -3,6 +3,7 @@
 namespace App\Http\Presenters\Post;
 
 use App\Http\Middleware\CleanArchitectureMiddleware;
+use App\Http\Models\Post\Commons\PostViewModel;
 use App\Http\Models\Post\Show\PostShowViewModel;
 use Packages\UseCase\Post\Show\PostShowPresenterInterface;
 use Packages\UseCase\Post\Show\PostShowResponse;
@@ -16,7 +17,10 @@ class PostShowPresenter implements PostShowPresenterInterface
 
     public function output(PostShowResponse $outputData)
     {
-        $viewModel = new PostShowViewModel($outputData);
+        $post = $outputData->getPost();
+        $post = new PostViewModel($post->id, $post->user_id, $post->caption, $post->post_photo_path, $post->created_at, $post->updated_at);
+        $viewModel = new PostShowViewModel($post);
+        dd($viewModel);
         $this->middleware->setData(view('test', compact('viewModel')));
     }
 }

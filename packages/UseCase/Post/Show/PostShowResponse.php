@@ -10,4 +10,9 @@ class PostShowResponse
     {
         $this->post = $post;
     }
+
+    public function getPost()
+    {
+        return $this->post;
+    }
 }
