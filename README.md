@@ -59,11 +59,19 @@ php artisan serve
 
 | route               | value needed                         |
 | ------------------- | ------------------------------------ |
-| follow/{user}       | -                                    |
 | post.index         | そのユーザー、そのフォロー相手の投稿 |
 | post.create | -　投稿フォームを渡すだけ            |
 | post.show | 投稿一枚分の情報 |
-| post.store        | 作成した投稿のid                           |
+| post.store        | 作成した投稿のid - showへリダイレクト             |
+| post.edit | 修正する投稿の情報 - 修正フォームを渡す |
+| post.update | editから受け取った情報をもとに修正 - showへリダイレクト |
+| post.destroy | - indexへのリダイレクト |
+
+
+
+| route               | value needed                         |
+| ------------------- | ------------------------------------ |
+| follow/{user}       | -                                    |
 | /profile/{user}     | そのユーザーのプロフィール情報全て   |
 | /profile{user}/edit | 同上                                 |
 | /profile/{user}     | -                                    |
