@@ -60,10 +60,10 @@ php artisan serve
 | route               | value needed                         |
 | ------------------- | ------------------------------------ |
 | follow/{user}       | -                                    |
-| /                   | そのユーザー、そのフォロー相手の投稿 |
-| /p/create           | -　投稿フォームを渡すだけ            |
-| /p/{post} | 投稿一枚分の情報 |
-| /p                  | -                                    |
+| post.index         | そのユーザー、そのフォロー相手の投稿 |
+| post.create | -　投稿フォームを渡すだけ            |
+| post.show | 投稿一枚分の情報 |
+| post.store        | 作成した投稿のid                           |
 | /profile/{user}     | そのユーザーのプロフィール情報全て   |
 | /profile{user}/edit | 同上                                 |
 | /profile/{user}     | -                                    |
@@ -130,7 +130,7 @@ php artisan serve
 
 ### リレーション
 
-![db_relations](readme_images/db_relations.jpg)
+![db_relations](readme_images/db_relations.png)
 
 
 
@@ -195,8 +195,7 @@ php artisan serve
 * app/Http/Presenters
 * Usecases/〇〇PresenterInterface
 * Use Caseから受け取ったリスポンスをもとにView Modelクラスが望む形に整形してクラスを作成し、ビューを返す
-
-
+* View Modelに関してDomain内のクラスなどに頼る必要があった場合は別途それ用のクラスをview modelのcommonsといったフォルダを作成して適用させる
 
 
 
@@ -204,8 +203,6 @@ php artisan serve
 
 ## TODO
 
-* それぞれのルート特にposts.indexの返り値調整(返り値が入れ子になっている)
-  * 渡すときにクラスを入れ替えるようにする？毎回？
 * postsの残りのルート実装
 * viewの仮作成
 * プロフィールのルートを調整、read,updateの実装
