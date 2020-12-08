@@ -25,6 +25,5 @@ Route::middleware(['auth', 'verified'])->get('/dashboard', function () {
 
 Route::group(['prefix' => 'user', 'middleware' => ['auth']], function () {
     Route::resource('post', PostController::class);
-
-    Route::get('/profile{user}', [ProfileController::class, 'show'])->name('profileShow');
+    Route::resource('profile', ProfileController::class)->only('edit', 'show', 'update');
 });

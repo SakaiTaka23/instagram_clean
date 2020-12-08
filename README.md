@@ -26,32 +26,36 @@ php artisan serve
 
 ## ルート
 
-| ルート               | メソッド | アクション | controller |
-| -------------------- | -------- | ---------- | ---------- |
-| follow/{user}        | post     | store      | user       |
-| /profile/{user}      | get      | show       | profile    |
-| /profile/{user}/edit | get      | edit       | profile    |
-| /profile/{user}      | patch    | update     | profile    |
-
-※全てにuserがプリフィックスとして付き、ログインが必要
 
 
 
 ### PostController
 
-| Verb      | UrI              | Action  |
-| --------- | ---------------- | ------- |
-| GET       | /post            | index   |
-| GET       | /post/create     | create  |
-| POST      | /post            | store   |
-| GET       | post/{post}      | show    |
-| GET       | post/{post}/edit | edit    |
-| PUT/PATCH | post/{post}      | update  |
-| DELETE    | post/{post}      | destroy |
+| Method | UrI              | Action  |
+| ------ | ---------------- | ------- |
+| GET    | /post            | index   |
+| GET    | /post/create     | create  |
+| POST   | /post            | store   |
+| GET    | post/{post}      | show    |
+| GET    | post/{post}/edit | edit    |
+| PATCH  | post/{post}      | update  |
+| DELETE | post/{post}      | destroy |
 
 ※全てログイン必須
 
-※index,create,store,showは実装済み
+
+
+### ProfileController
+
+| Method | Url                     | Action |
+| ------ | ----------------------- | ------ |
+| GET    | /profile/{profile}      | show   |
+| GET    | /profile/{profile}/edit | edit   |
+| PATCH  | /profile/{profile}      | update |
+
+※全てログイン必須
+
+※edit,updateは持ち主のみ
 
 
 
@@ -69,12 +73,11 @@ php artisan serve
 
 
 
-| route               | value needed                         |
-| ------------------- | ------------------------------------ |
-| follow/{user}       | -                                    |
-| /profile/{user}     | そのユーザーのプロフィール情報全て   |
-| /profile{user}/edit | 同上                                 |
-| /profile/{user}     | -                                    |
+| route           | value needed                       |
+| --------------- | ---------------------------------- |
+| profile.show    | そのユーザーのプロフィール情報全て |
+| profile.edit    | 同上                               |
+| profilie.update | - showへリダイレクト               |
 
 
 
@@ -156,9 +159,9 @@ php artisan serve
 
 ### ユーザー
 
-* プロフィール表示@index
-* プロフィールの修正@edit
-* プロフィールのアップデート@update
+* プロフィール表示@show
+* プロフィールの修正@edit 持ち主のみ
+* プロフィールのアップデート@update 持ち主のみ
 
 
 
@@ -225,7 +228,6 @@ php artisan serve
 
 ## TODO
 
-* postsの残りのルート実装
 * viewの仮作成
 * プロフィールのルートを調整、read,updateの実装
 * Readmeに全体の構造の詳細を記入
