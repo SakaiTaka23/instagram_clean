@@ -150,12 +150,26 @@ php artisan serve
 * 詳細表示@show
 * 作成(投稿)@create (更新不可)
 * 保存@store
+* 編集@edit
+* 更新@update captionのみ変更可能
+* 削除@destroy
 
 ### ユーザー
 
 * プロフィール表示@index
 * プロフィールの修正@edit
 * プロフィールのアップデート@update
+
+
+
+## インターフェースでの紐付け
+
+* ServiceProviderを介して紐付けを行なっている
+* リポジトリ、UseCase,プレゼンターを紐づけている
+* サービスプロパイダもそれぞれについて分た
+  * プレゼンター→PresenterServiceProvider
+  * リポジトリ→RepositoryServiceProvider
+  * ユースケース→UseCaseServiceProvider
 
 
 

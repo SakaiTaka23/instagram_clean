@@ -177,6 +177,13 @@ return [
         App\Providers\FortifyServiceProvider::class,
         App\Providers\JetstreamServiceProvider::class,
 
+        /*
+         * Original Service Providers... 
+         */
+        App\Providers\PresenterServiceProvider::class,
+        App\Providers\RepositoryServiceProvider::class,
+        App\Providers\UseCaseServiceProvider::class,
+
     ],
 
     /*
