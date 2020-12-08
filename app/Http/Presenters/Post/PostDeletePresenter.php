@@ -15,5 +15,6 @@ class PostDeletePresenter implements PostDeletePresenterInterface
 
     public function output(PostDeleteResponse $outputData)
     {
+        $this->middleware->setData(redirect(route('post.index')));
     }
 }

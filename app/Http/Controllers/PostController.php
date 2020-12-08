@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Packages\UseCase\Post\Create\PostCreateRequest;
 use Packages\UseCase\Post\Create\PostCreateUseCaseInterface;
+use Packages\UseCase\Post\Delete\PostDeleteRequest;
+use Packages\UseCase\Post\Delete\PostDeleteUseCaseInterface;
 use Packages\UseCase\Post\Edit\PostEditRequest;
 use Packages\UseCase\Post\Edit\PostEditUseCaseInterface;
 use Packages\UseCase\Post\Index\PostIndexRequest;
@@ -33,9 +35,10 @@ class PostController extends Controller
         $interactor->handle($request);
     }
 
-    public function destroy($id)
+    public function destroy($id, PostDeleteUseCaseInterface $interactor)
     {
-        dd($id);
+        $request = new PostDeleteRequest($id);
+        $interactor->handle($request);
     }
 
     public function edit($id, PostEditUseCaseInterface $interactor)
@@ -64,7 +67,7 @@ class PostController extends Controller
 
     public function update($id, Request $request, PostUpdateUseCaseInterface $interactor)
     {
-        $request = new PostUpdateRequest($request->caption,$id);
+        $request = new PostUpdateRequest($request->caption, $id);
         $interactor->handle($request);
     }
 }

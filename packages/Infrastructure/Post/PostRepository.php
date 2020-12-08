@@ -10,18 +10,6 @@ use Packages\Domain\Domain\Post\PostRepositoryInterface;
 
 class PostRepository implements PostRepositoryInterface
 {
-    public function find_from_userid(int $UserId)
-    {
-        $post = DB::table('posts')->where('user_id', $UserId)->get();
-        return $post;
-    }
-
-    public function find_from_postid(int $PostId)
-    {
-        $post = DB::table('posts')->where('id', $PostId)->first();
-        return $post;
-    }
-
     public function create_post_get_id(Post $post)
     {
         $id = DB::table('posts')
@@ -35,6 +23,25 @@ class PostRepository implements PostRepositoryInterface
         return $id;
     }
 
+    public function delete_post(int $PostId)
+    {
+        DB::table('posts')
+            ->where('id', $PostId)
+            ->delete();
+    }
+
+    public function find_from_userid(int $UserId)
+    {
+        $post = DB::table('posts')->where('user_id', $UserId)->get();
+        return $post;
+    }
+
+    public function find_from_postid(int $PostId)
+    {
+        $post = DB::table('posts')->where('id', $PostId)->first();
+        return $post;
+    }
+
     public function storeImage($image)
     {
         $imagePath = $image->store('uploads', 'public');
@@ -45,7 +52,7 @@ class PostRepository implements PostRepositoryInterface
     public function update_post(int $PostId, string $caption, string $updated_at)
     {
         DB::table('posts')
-            ->where('id',$PostId)
+            ->where('id', $PostId)
             ->update([
                 'caption' => $caption,
                 'updated_at' => $updated_at,
