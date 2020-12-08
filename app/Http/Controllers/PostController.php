@@ -33,6 +33,11 @@ class PostController extends Controller
         $interactor->handle($request);
     }
 
+    public function destroy($id)
+    {
+        dd($id);
+    }
+
     public function edit($id, PostEditUseCaseInterface $interactor)
     {
         $request = new PostEditRequest($id);

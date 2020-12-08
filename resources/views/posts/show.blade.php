@@ -20,4 +20,10 @@
         </div>
     </div>
 
+    <form action="{{ route('post.destroy',[$viewModel->post->id]) }}" method="POST">
+        @method('DELETE')
+        @csrf
+        <button class="btn">Delete Post</button>
+    </form>
+
 </x-app-layout>
