@@ -10,7 +10,9 @@ use Packages\Domain\Application\Post\PostIndexInteractor;
 use Packages\Domain\Application\Post\PostShowInteractor;
 use Packages\Domain\Application\Post\PostStoreInteractor;
 use Packages\Domain\Application\Post\PostUpdateInteractor;
-use Packages\Domain\Application\Profile\ProfileIndexInteractor;
+use Packages\Domain\Application\Profile\ProfileEditInteractor;
+use Packages\Domain\Application\Profile\ProfileShowInteractor;
+use Packages\Domain\Application\Profile\ProfileUpdateInteractor;
 use Packages\UseCase\Post\Create\PostCreateUseCaseInterface;
 use Packages\UseCase\Post\Delete\PostDeleteUseCaseInterface;
 use Packages\UseCase\Post\Edit\PostEditUseCaseInterface;
@@ -18,7 +20,9 @@ use Packages\UseCase\Post\Index\PostIndexUseCaseInterface;
 use Packages\UseCase\Post\Show\PostShowUseCaseInterface;
 use Packages\UseCase\Post\Store\PostStoreUseCaseInterface;
 use Packages\UseCase\Post\Update\PostUpdateUseCaseInterface;
-use Packages\UseCase\Profile\Index\ProfileIndexUseCaseInterface;
+use Packages\UseCase\Profile\Edit\ProfileEditUseCaseInterface;
+use Packages\UseCase\Profile\Show\ProfileShowUseCaseInterface;
+use Packages\UseCase\Profile\Update\ProfileUpdateUseCaseInterface;
 
 class UseCaseServiceProvider extends ServiceProvider
 {
@@ -31,7 +35,9 @@ class UseCaseServiceProvider extends ServiceProvider
         PostStoreUseCaseInterface::class => PostStoreInteractor::class,
         PostUpdateUseCaseInterface::class => PostUpdateInteractor::class,
 
-        ProfileIndexUseCaseInterface::class => ProfileIndexInteractor::class,
+        ProfileEditUseCaseInterface::class => ProfileEditInteractor::class,
+        ProfileShowUseCaseInterface::class => ProfileShowInteractor::class,
+        ProfileUpdateUseCaseInterface::class => ProfileUpdateInteractor::class,
     ];
     /**
      * Register services.

@@ -5,7 +5,7 @@ namespace Packages\Domain\Application\Profile;
 use Packages\UseCase\Profile\Edit\ProfileEditRequest;
 use Packages\UseCase\Profile\Edit\ProfileEditUseCaseInterface;
 
-class ProfileEditInteracter implements ProfileEditUseCaseInterface
+class ProfileEditInteractor implements ProfileEditUseCaseInterface
 {
     public function __construct()
     {
