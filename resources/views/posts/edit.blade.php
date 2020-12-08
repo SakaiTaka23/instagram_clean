@@ -15,13 +15,13 @@
             <div class="row">
                 <label for="image" class="col-md-4 col-form-label">Post Image</label>
                 <h1>Image</h1>
-                <img src="/storage/{{ $viewModel->post->post_photo_path }}" style="max-width: 40px;">
+                <img src="/storage/{{ $viewModel->post->post_photo_path }}" class="w-96">
                 <h1>{{ $viewModel->post->created_at }}</h1>
                 <h1>{{ $viewModel->post->updated_at }}</h1>
             </div>
 
-            {{-- <form action="{{ route('post.edit') }}" enctype="multipart/form-data" method="POST"> --}}
-            <form action="#" enctype="multipart/form-data" method="POST">
+            <form action="{{ route('post.update',[$viewModel->post->id]) }}" enctype="multipart/form-data" method="POST">
+                @method('PATCH')
                 @csrf
 
                 <div class="row">

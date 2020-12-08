@@ -14,6 +14,7 @@ use Packages\UseCase\Post\Show\PostShowRequest;
 use Packages\UseCase\Post\Show\PostShowUseCaseInterface;
 use Packages\UseCase\Post\Store\PostStoreUseCaseInterface;
 use Packages\UseCase\Post\Store\PostStoreRequest;
+use Packages\UseCase\Post\Update\PostUpdateUseCaseInterface;
 
 class PostController extends Controller
 {
@@ -31,7 +32,7 @@ class PostController extends Controller
         $interactor->handle($request);
     }
 
-    public function edit($id,PostEditUseCaseInterface $interactor)
+    public function edit($id, PostEditUseCaseInterface $interactor)
     {
         $request = new PostEditRequest($id);
         $interactor->handle($request);
@@ -53,5 +54,10 @@ class PostController extends Controller
     {
         $request = new PostStoreRequest($this->auth_id, $request->caption, request('image'));
         $interactor->handle($request);
+    }
+
+    public function update(Request $request, PostUpdateUseCaseInterface $interactor)
+    {
+        dd($request->caption);
     }
 }

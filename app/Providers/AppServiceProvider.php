@@ -47,6 +47,11 @@ class AppServiceProvider extends ServiceProvider
         );
 
         $this->app->bind(
+            \Packages\UseCase\Post\Update\PostUpdateUseCaseInterface::class,
+            \Packages\Domain\Application\Post\PostUpdateInteractor::class
+        );
+
+        $this->app->bind(
             \Packages\UseCase\Post\Create\PostCreatePresenterInterface::class,
             \App\Http\Presenters\Post\PostCreatePresenter::class
         );
@@ -69,6 +74,11 @@ class AppServiceProvider extends ServiceProvider
         $this->app->bind(
             \Packages\UseCase\Post\Store\PostStorePresenterInterface::class,
             \App\Http\Presenters\Post\PostStorePresenter::class
+        );
+
+        $this->app->bind(
+            \Packages\UseCase\Post\Update\PostUpdatePresenterInterface::class,
+            \App\Http\Presenters\Post\PostUpdatePresenter::class
         );
 
         $this->app->singleton(\App\Http\Middleware\CleanArchitectureMiddleware::class);
