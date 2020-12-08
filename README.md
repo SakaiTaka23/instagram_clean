@@ -147,9 +147,9 @@ php artisan serve
 
 ## 機能一覧
 
-### 画像
+### 画像 post
 
-* 一覧表示@index
+* ランダム表示@index **ログインしていない人も閲覧可能**
 * 詳細表示@show
 * 作成(投稿)@create (更新不可)
 * 保存@store
@@ -157,11 +157,18 @@ php artisan serve
 * 更新@update captionのみ変更可能
 * 削除@destroy
 
-### ユーザー
+### ユーザー profile
 
-* プロフィール表示@show
+* 画像表示 (フォロー相手のも) @index
+
+* プロフィール表示@show あるユーザーについて表示
+
 * プロフィールの修正@edit 持ち主のみ
 * プロフィールのアップデート@update 持ち主のみ
+
+
+
+![screen_transition](readme_images/screen_transition.jpg)
 
 
 
@@ -228,7 +235,9 @@ php artisan serve
 
 ## TODO
 
+* 画面遷移図作成
 * viewの仮作成
-* プロフィールのルートを調整、read,updateの実装
+* プロフィールのルートを調整、edit,show,updateの実装
+* update,editの権限確認、store時のバリデーション追加
 * Readmeに全体の構造の詳細を記入
 
