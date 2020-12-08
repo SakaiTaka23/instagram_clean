@@ -41,4 +41,14 @@ class PostRepository implements PostRepositoryInterface
         $image = Image::make(public_path("storage/{$imagePath}"))->fit(1200, 1200)->save();
         return $imagePath;
     }
+
+    public function update_post(int $PostId, string $caption, string $updated_at)
+    {
+        DB::table('posts')
+            ->where('id',$PostId)
+            ->update([
+                'caption' => $caption,
+                'updated_at' => $updated_at,
+            ]);
+    }
 }

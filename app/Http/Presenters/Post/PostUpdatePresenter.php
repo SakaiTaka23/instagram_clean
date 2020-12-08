@@ -15,5 +15,6 @@ class PostUpdatePresenter implements PostUpdatePresenterInterface
 
     public function output(PostUpdateResponse $outputData)
     {
+        $this->middleware->setData(redirect(route('post.show', ['post' => $outputData->getUpdatedPostId()])));
     }
 }
