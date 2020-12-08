@@ -20,7 +20,6 @@ class PostShowPresenter implements PostShowPresenterInterface
         $post = $outputData->getPost();
         $post = new PostViewModel($post->id, $post->user_id, $post->caption, $post->post_photo_path, $post->created_at, $post->updated_at);
         $viewModel = new PostShowViewModel($post);
-        dd($viewModel);
-        $this->middleware->setData(view('test', compact('viewModel')));
+        $this->middleware->setData(view('posts.show', compact('viewModel')));
     }
 }

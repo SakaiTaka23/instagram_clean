@@ -1,38 +1,23 @@
-@extends('layouts.app')
+<x-app-layout>
 
-@section('content')
-<div class="container">
-    <div class="row">
-        <div class="col-8">
-            <img src="/storage/{{ $post->image }}" class="w-100">
-        </div>
-        <div class="col-4">
-            <div>
-                <div class="d-flex align-items-center">
-                    <div class="pr-3">
-                        <img src="{{ $post->user->profile->profileImage() }}" class="rounded-circle w-100" style="max-width: 40px;">
-                    </div>
-                    <div>
-                        <div class="font-weight-bold">
-                            <a href="/profile/{{ $post->user->id }}">
-                                <span class="text-dark">{{ $post->user->username }}</span>
-                            </a>
-                            <a href="#" class="pl-3">Follow</a>
-                        </div>
-                    </div>
-                </div>
+    <x-slot name="header">
+        PostShow
+    </x-slot>
 
-                <hr>
-
-                <p>
-                    <span class="font-weight-bold">
-                        <a href="/profile/{{ $post->user->id }}">
-                            <span class="text-dark">{{ $post->user->username }}</span>
-                        </a>
-                    </span> {{ $post->caption }}
-                </p>
+    <div class="container">
+        <div class="row">
+            <div class="col-8">
+                <img src="/storage/{{ $viewModel->post->post_photo_path }}" class="w-96">
+            </div>
+            <div class="col-4">
+                <h1><strong>Caption</strong></h1>
+                <h1>{{ $viewModel->post->caption }}</h1>
+                <h1><strong>CreatedAt</strong></h1>
+                <h1>{{ $viewModel->post->created_at }}</h1>
+                <h1><strong>UpdatedAt</strong></h1>
+                <h1>{{ $viewModel->post->updated_at }}</h1>
             </div>
         </div>
     </div>
-</div>
-@endsection
+
+</x-app-layout>

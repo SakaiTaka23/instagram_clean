@@ -20,7 +20,8 @@
                 <h1>{{ $viewModel->post->updated_at }}</h1>
             </div>
 
-            <form action="{{ route('post.update',[$viewModel->post->id]) }}" enctype="multipart/form-data" method="POST">
+            <form action="{{ route('post.update',[$viewModel->post->id]) }}" enctype="multipart/form-data"
+                method="POST">
                 @method('PATCH')
                 @csrf
 
