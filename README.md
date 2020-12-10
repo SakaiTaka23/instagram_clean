@@ -75,9 +75,10 @@ php artisan serve
 
 | route           | value needed                       |
 | --------------- | ---------------------------------- |
-| profile.show    | そのユーザーのプロフィール情報全て |
-| profile.edit    | 同上                               |
-| profilie.update | - showへリダイレクト               |
+| profiles.index | そのユーザーの投稿 -ログイン後に入る |
+| profiles.show   | そのユーザーのプロフィール情報全て |
+| profiles.edit   | 同上                               |
+| profilies.update | - showへリダイレクト               |
 
 
 
@@ -92,6 +93,8 @@ php artisan serve
 プロフィールの情報を保持
 
 ユーザーidや名前説明やプロフィール写真、url
+
+
 
 ### User
 
@@ -159,9 +162,9 @@ php artisan serve
 
 ### ユーザー profile
 
-* 画像表示 (フォロー相手のも) @index
+* 画像表示 (フォロー相手のも) @index 投稿のみを表示
 
-* プロフィール表示@show あるユーザーについて表示
+* プロフィール表示@show あるユーザーについてプロフィール、投稿表示
 
 * プロフィールの修正@edit 持ち主のみ
 * プロフィールのアップデート@update 持ち主のみ
