@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Packages\UseCase\Profile\Edit\ProfileEditRequest;
+use Packages\UseCase\Profile\Edit\ProfileEditUseCaseInterface;
 use Packages\UseCase\Profile\Index\ProfileIndexRequest;
 use Packages\UseCase\Profile\Index\ProfileIndexUseCaseInterface;
 use Packages\UseCase\Profile\Show\ProfileShowRequest;
@@ -19,9 +21,10 @@ class ProfileController extends Controller
         });
     }
 
-    public function edit($id)
+    public function edit(ProfileEditUseCaseInterface $interactor)
     {
-        dd($id);
+        $request = new ProfileEditRequest($this->auth_id);
+        $interactor->handle($request);
     }
 
     public function index(ProfileIndexUseCaseInterface $interactor)
