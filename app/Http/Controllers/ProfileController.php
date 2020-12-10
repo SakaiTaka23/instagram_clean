@@ -6,12 +6,17 @@ use Illuminate\Http\Request;
 
 class ProfileController extends Controller
 {
-    public function show($id)
+    public function edit($id)
     {
         dd($id);
     }
 
-    public function edit($id)
+    public function index()
+    {
+        dd("index");
+    }
+
+    public function show($id)
     {
         dd($id);
     }

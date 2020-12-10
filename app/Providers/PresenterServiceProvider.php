@@ -10,6 +10,7 @@ use App\Http\Presenters\Post\PostShowPresenter;
 use App\Http\Presenters\Post\PostStorePresenter;
 use App\Http\Presenters\Post\PostUpdatePresenter;
 use App\Http\Presenters\Profile\ProfileEditPresenter;
+use App\Http\Presenters\Profile\ProfileIndexPresenter;
 use App\Http\Presenters\Profile\ProfileShowPresenter;
 use App\Http\Presenters\Profile\ProfileUpdatePresenter;
 use Illuminate\Support\ServiceProvider;
@@ -21,6 +22,7 @@ use Packages\UseCase\Post\Show\PostShowPresenterInterface;
 use Packages\UseCase\Post\Store\PostStorePresenterInterface;
 use Packages\UseCase\Post\Update\PostUpdatePresenterInterface;
 use Packages\UseCase\Profile\Edit\ProfileEditPresenterInterface;
+use Packages\UseCase\Profile\Index\ProfileIndexPresenterInterface;
 use Packages\UseCase\Profile\Show\ProfileShowPresenterInterface;
 use Packages\UseCase\Profile\Update\ProfileUpdatePresenterInterface;
 
@@ -36,6 +38,7 @@ class PresenterServiceProvider extends ServiceProvider
         PostUpdatePresenterInterface::class => PostUpdatePresenter::class,
 
         ProfileEditPresenterInterface::class => ProfileEditPresenter::class,
+        ProfileIndexPresenterInterface::class => ProfileIndexPresenter::class,
         ProfileShowPresenterInterface::class => ProfileShowPresenter::class,
         ProfileUpdatePresenterInterface::class => ProfileUpdatePresenter::class,
     ];
