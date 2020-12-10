@@ -61,12 +61,19 @@ class PostController extends Controller
 
     public function store(Request $request, PostStoreUseCaseInterface $interactor)
     {
+        request()->validate([
+            'caption' => ['required', 'max:2000'],
+            'image' => ['required', 'image'],
+        ]);
         $request = new PostStoreRequest($this->auth_id, $request->caption, request('image'));
         $interactor->handle($request);
     }
 
     public function update($id, Request $request, PostUpdateUseCaseInterface $interactor)
     {
+        request()->validate([
+            'caption' => ['required', 'max:2000'],
+        ]);
         $request = new PostUpdateRequest($request->caption, $id);
         $interactor->handle($request);
     }
