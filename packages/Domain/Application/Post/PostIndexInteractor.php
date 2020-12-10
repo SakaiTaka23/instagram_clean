@@ -18,8 +18,7 @@ class PostIndexInteractor implements PostIndexUseCaseInterface
 
     public function handle(PostIndexRequest $request)
     {
-        $userId = $request->getUserId();
-        $posts = $this->postRepository->find_from_userid($userId);
+        $posts = $this->postRepository->get_random_posts();
         $response = new PostIndexResponse($posts);
         $this->presenter->output($response);
     }

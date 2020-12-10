@@ -4,13 +4,7 @@ namespace Packages\UseCase\Post\Index;
 
 class PostIndexRequest
 {
-    public function __construct(Int $UserId)
+    public function __construct()
     {
-        $this->UserId = $UserId;
-    }
-
-    public function getUserId(): Int
-    {
-        return $this->UserId;
     }
 }

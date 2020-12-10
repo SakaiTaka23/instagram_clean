@@ -49,7 +49,7 @@ class PostController extends Controller
 
     public function index(PostIndexUseCaseInterface $interactor)
     {
-        $request = new PostIndexRequest($this->auth_id);
+        $request = new PostIndexRequest();
         $interactor->handle($request);
     }
 

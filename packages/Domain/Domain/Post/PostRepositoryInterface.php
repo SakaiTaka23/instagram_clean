@@ -10,6 +10,7 @@ interface PostRepositoryInterface
     public function find_from_postid(int $PostId);
     public function find_from_userid(int $UserId);
     public function find_from_userid_simple(int $UserId);
+    public function get_random_posts();
     public function storeImage($image);
     public function update_post(int $PostId, string $caption, string $updated_at);
 }

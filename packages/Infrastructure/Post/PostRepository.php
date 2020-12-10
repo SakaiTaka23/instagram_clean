@@ -47,6 +47,12 @@ class PostRepository implements PostRepositoryInterface
         return $post;
     }
 
+    public function get_random_posts()
+    {
+        $posts = DB::table('posts')->take(10)->get();
+        return $posts;
+    }
+
     public function storeImage($image)
     {
         $imagePath = $image->store('uploads', 'public');
