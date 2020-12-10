@@ -4,7 +4,6 @@ namespace Packages\Infrastructure\Post;
 
 use Illuminate\Support\Facades\DB;
 use Intervention\Image\Facades\Image;
-
 use Packages\Domain\Domain\Post\Post;
 use Packages\Domain\Domain\Post\PostRepositoryInterface;
 

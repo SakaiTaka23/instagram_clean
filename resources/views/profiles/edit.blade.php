@@ -1,7 +1,7 @@
 <x-app-layout>
 
     <x-slot name="header">
-        PostEdit
+        ProfileEdit
     </x-slot>
 
 
@@ -26,9 +26,18 @@
                 <div class="row">
                     <div class="col-8 offset-2">
 
-                        <div class='form-group row'>
+                        <div class='form-group'>
+                            <label for='profile image'>Profile Icon</label>
+                            <input type="file" class="form-control-file" id="profile_image" name="profile_image">
+
+                            @if ($errors->has('profile_image'))
+                            <strong>{{ $errors->first('profile_image') }}</strong>
+                            @endif
+
+
                             <label for='username'>User Name</label>
-                            <input id='username' type='text' value="{{ $viewModel->profile->username }}" autofocus>
+                            <input id='username' name='username' type='text' value="{{ $viewModel->profile->username }}"
+                                autofocus>
                             @if ($errors->has('username'))
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $errors->first('username') }}</strong>
@@ -36,10 +45,19 @@
                             @endif
 
                             <label for='description'>Description</label>
-                            <input id='description' type='text' value="{{ $viewModel->profile->description }}">
+                            <input id='description' name='description' type='text'
+                                value="{{ $viewModel->profile->description }}">
                             @if ($errors->has('description'))
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $errors->first('description') }}</strong>
+                            </span>
+                            @endif
+
+                            <label for='url'>URL</label>
+                            <input id='url' name='url' type='text' value="{{ $viewModel->profile->url }}">
+                            @if ($errors->has('url'))
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $errors->first('url') }}</strong>
                             </span>
                             @endif
 

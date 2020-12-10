@@ -15,5 +15,6 @@ class ProfileUpdatePresenter implements ProfileUpdatePresenterInterface
 
     public function output(ProfileUpdateResponse $outputData)
     {
+        $this->middleware->setData(redirect(route('profiles.show', ['profile' => $outputData->getUpdatedUserId()])));
     }
 }

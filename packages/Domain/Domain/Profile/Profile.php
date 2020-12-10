@@ -4,24 +4,6 @@ namespace Packages\Domain\Domain\Profile;
 
 class Profile
 {
-
-    public function profileImage()
-    {
-        $imagePath = ($this->image) ? $this->image : 'profile/JNiNHZYPax0bk1mZWBDuZbvKfghk7OsZRJjsTrXO.png';
-
-        return '/storage/' . $imagePath;
-    }
-
-    // public function followers()
-    // {
-    //     return $this->belongsToMany('packages\Domain\Domain\User');
-    // }
-
-    // public function user()
-    // {
-    //     return $this->belongsTo('packages\Domain\Domain\User');
-    // }
-
     public function __construct(int $id, int $user_id, string $username, string $description, string $url, string $profile_photo_path)
     {
         $this->id = $id;

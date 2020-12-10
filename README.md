@@ -245,6 +245,6 @@ php artisan serve
 * 画面遷移図作成
 * viewの仮作成
 * プロフィールのルートを調整、edit,show,updateの実装
-* update,editの権限確認、store時のバリデーション追加
+* update,editの権限確認、store時のバリデーション追加、プロフィール画像・投稿画像が消された時にストレージでも消えるようにする
 * Readmeに全体の構造の詳細を記入
 

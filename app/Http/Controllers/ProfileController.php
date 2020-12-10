@@ -10,6 +10,8 @@ use Packages\UseCase\Profile\Index\ProfileIndexRequest;
 use Packages\UseCase\Profile\Index\ProfileIndexUseCaseInterface;
 use Packages\UseCase\Profile\Show\ProfileShowRequest;
 use Packages\UseCase\Profile\Show\ProfileShowUseCaseInterface;
+use Packages\UseCase\Profile\Update\ProfileUpdateRequest;
+use Packages\UseCase\Profile\Update\ProfileUpdateUseCaseInterface;
 
 class ProfileController extends Controller
 {
@@ -39,8 +41,9 @@ class ProfileController extends Controller
         $interactor->handle($request);
     }
 
-    public function update(Request $request, $id)
+    public function update(Request $request, ProfileUpdateUseCaseInterface $interactor)
     {
-        dd($request, $id);
+        $request = new ProfileUpdateRequest($this->auth_id, request('profile_image'), $request->username, $request->description, $request->url);
+        $interactor->handle($request);
     }
 }
