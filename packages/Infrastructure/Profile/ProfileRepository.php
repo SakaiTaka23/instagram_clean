@@ -10,14 +10,14 @@ class ProfileRepository implements ProfileRepositoryInterface
 {
     public function find($ProfileId)
     {
-        $profile = DB::table('profile')->where('id', $ProfileId)->first();
+        $profile = DB::table('profiles')->where('id', $ProfileId)->first();
         return $profile;
     }
 
     public function save(Profile $profile)
     {
         DB::table('profiles')
-            ->updateOrInsert(
+            ->update(
                 ['id' => $profile->getId()],
                 ['user_id' => $profile->getUserId()],
                 ['username' => $profile->getUserName()],

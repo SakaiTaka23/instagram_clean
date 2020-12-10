@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Packages\UseCase\Profile\Index\ProfileIndexRequest;
 use Packages\UseCase\Profile\Index\ProfileIndexUseCaseInterface;
+use Packages\UseCase\Profile\Show\ProfileShowRequest;
+use Packages\UseCase\Profile\Show\ProfileShowUseCaseInterface;
 
 class ProfileController extends Controller
 {
@@ -28,9 +30,10 @@ class ProfileController extends Controller
         $interactor->handle($request);
     }
 
-    public function show($id)
+    public function show($id, ProfileShowUseCaseInterface $interactor)
     {
-        dd($id);
+        $request = new ProfileShowRequest($id);
+        $interactor->handle($request);
     }
 
     public function update(Request $request, $id)

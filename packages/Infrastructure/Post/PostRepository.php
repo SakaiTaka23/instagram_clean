@@ -36,6 +36,12 @@ class PostRepository implements PostRepositoryInterface
         return $post;
     }
 
+    public function find_from_userid_simple(int $UserId)
+    {
+        $post = DB::table('posts')->select('id', 'post_photo_path')->where('user_id', $UserId)->get();
+        return $post;
+    }
+
     public function find_from_postid(int $PostId)
     {
         $post = DB::table('posts')->where('id', $PostId)->first();

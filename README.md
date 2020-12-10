@@ -28,6 +28,10 @@ php artisan serve
 
 
 
+![method_table](readme_images/method_table.png)
+
+
+
 
 ### PostController
 
@@ -94,7 +98,7 @@ php artisan serve
 
 ユーザーidや名前説明やプロフィール写真、url
 
-
+ユーザー作成と同時に作成
 
 ### User
 
