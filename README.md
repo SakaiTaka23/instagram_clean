@@ -179,6 +179,34 @@ php artisan serve
 
 
 
+## バリデーション
+
+### post.create
+
+caption:必須、2000文字以下
+
+image:必須、画像
+
+
+
+### post.update
+
+caption:必須、2000文字以下
+
+
+
+### profile.update
+
+image:必須、画像
+
+username:必須、20文字以下
+
+description:200文字以下
+
+url:url,30文字以下
+
+
+
 ## インターフェースでの紐付け
 
 * ServiceProviderを介して紐付けを行なっている
@@ -243,6 +271,6 @@ php artisan serve
 ## TODO
 
 * viewの作成
-* post-destroy,update,editの権限確認、store,update時のバリデーション追加、プロフィール画像・投稿画像が消された時にストレージでも消えるようにする
+* post-destroy,update,editの権限確認、プロフィール画像・投稿画像の消去・更新時にストレージでも消えるようにする
 * Readmeに全体の構造の詳細を記入
 

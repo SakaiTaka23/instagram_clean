@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\ProfileUpdateRequest as RequestsProfileUpdateRequest;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Packages\UseCase\Profile\Edit\ProfileEditRequest;
@@ -42,10 +41,14 @@ class ProfileController extends Controller
         $interactor->handle($request);
     }
 
-    public function update(RequestsProfileUpdateRequest $request, ProfileUpdateUseCaseInterface $interactor)
+    public function update(Request $request, ProfileUpdateUseCaseInterface $interactor)
     {
-        $request = $request->validated();
-        dd($request);
+        request()->validate([
+            'profile_image' => ['required', 'image'],
+            'username' => ['required', 'max:20'],
+            'description' => ['required', 'max:200'],
+            'url' => ['required', 'url', 'max:30'],
+        ]);
         $request = new ProfileUpdateRequest($this->auth_id, request('profile_image'), $request['username'], $request['description'], $request['url']);
         $interactor->handle($request);
     }

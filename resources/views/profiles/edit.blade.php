@@ -27,13 +27,14 @@
                     <div class="col-8 offset-2">
 
                         <div class='form-group'>
-                            <label for='profile image'>Profile Icon</label>
+                            <label for='profile image'>Profile Image</label>
                             <input type="file" class="form-control-file" id="profile_image" name="profile_image">
 
                             @if ($errors->has('profile_image'))
                             <strong>{{ $errors->first('profile_image') }}</strong>
                             @endif
 
+                            <br>
 
                             <label for='username'>User Name</label>
                             <input id='username' name='username' type='text' value="{{ $viewModel->profile->username }}"
@@ -44,6 +45,8 @@
                             </span>
                             @endif
 
+                            <br>
+
                             <label for='description'>Description</label>
                             <input id='description' name='description' type='text'
                                 value="{{ $viewModel->profile->description }}">
@@ -52,6 +55,8 @@
                                 <strong>{{ $errors->first('description') }}</strong>
                             </span>
                             @endif
+
+                            <br>
 
                             <label for='url'>URL</label>
                             <input id='url' name='url' type='text' value="{{ $viewModel->profile->url }}">
