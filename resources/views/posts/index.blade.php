@@ -1,34 +1,15 @@
-@extends('layouts.app')
+<x-app-layout>
+    <x-slot name="header">
+        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
+            {{ __('Dashboard') }}
+        </h2>
+    </x-slot>
 
-@section('content')
-<div class="container">
-    @foreach($posts as $post)
-        <div class="row">
-            <div class="col-6 offset-3">
-                <a href="/profile/{{ $post->user->id }}">
-                    <img src="/storage/{{ $post->image }}" class="w-100">
-                </a>
+    <div class="py-12">
+        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
+            <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg">
+                <x-jet-welcome />
             </div>
         </div>
-        <div class="row pt-2 pb-4">
-            <div class="col-6 offset-3">
-                <div>
-                    <p>
-                    <span class="font-weight-bold">
-                        <a href="/profile/{{ $post->user->id }}">
-                            <span class="text-dark">{{ $post->user->username }}</span>
-                        </a>
-                    </span> {{ $post->caption }}
-                    </p>
-                </div>
-            </div>
-        </div>
-    @endforeach
-
-        <div class="row">
-            <div class="col-12 d-flex justify-content-center">
-                {{ $posts->links() }}
-            </div>
-        </div>
-</div>
-@endsection
+    </div>
+</x-app-layout>
