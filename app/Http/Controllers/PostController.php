@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Post;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Packages\UseCase\Post\Create\PostCreateRequest;
@@ -37,12 +38,18 @@ class PostController extends Controller
 
     public function destroy($id, PostDeleteUseCaseInterface $interactor)
     {
+        $post = Post::select('user_id')->where('id', $id)->first();
+        $this->authorize('delete', $post);
+
         $request = new PostDeleteRequest($id);
         $interactor->handle($request);
     }
 
     public function edit($id, PostEditUseCaseInterface $interactor)
     {
+        $post = Post::select('user_id')->where('id', $id)->first();
+        $this->authorize('update', $post);
+
         $request = new PostEditRequest($id);
         $interactor->handle($request);
     }
@@ -71,6 +78,9 @@ class PostController extends Controller
 
     public function update($id, Request $request, PostUpdateUseCaseInterface $interactor)
     {
+        $post = Post::select('user_id')->where('id', $id)->first();
+        $this->authorize('update', $post);
+
         request()->validate([
             'caption' => ['required', 'max:2000'],
         ]);

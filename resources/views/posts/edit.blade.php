@@ -15,7 +15,7 @@
             <div class="row">
                 <label for="image" class="col-md-4 col-form-label">Post Image</label>
                 <h1>Image</h1>
-                <img src="/profile/{{ $viewModel->post->post_photo_path }}" class="w-96">
+                <img src="/storage/{{ $viewModel->post->post_photo_path }}" class="w-96">
                 <h1>{{ $viewModel->post->created_at }}</h1>
                 <h1>{{ $viewModel->post->updated_at }}</h1>
             </div>

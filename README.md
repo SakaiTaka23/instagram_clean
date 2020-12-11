@@ -207,6 +207,17 @@ url:url,30文字以下
 
 
 
+## ポリシー
+
+* post-destroy,update,edit で実装
+* modelを使って関連づける必要があるためこのためにPostモデルを作成
+
+### post-destroy,update,edit
+
+User->id === Post->user_id
+
+
+
 ## インターフェースでの紐付け
 
 * ServiceProviderを介して紐付けを行なっている
@@ -272,6 +283,5 @@ url:url,30文字以下
 
 * viewの作成
 * post-destroy,update,editの権限確認
-* プロフィール画像 profile.updateにストレージでも消えるようにする
 * Readmeに全体の構造の詳細を記入
 
