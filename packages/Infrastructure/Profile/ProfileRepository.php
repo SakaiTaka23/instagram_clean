@@ -3,15 +3,21 @@
 namespace Packages\Infrastructure\Profile;
 
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Storage;
 use Intervention\Image\Facades\Image;
 use Packages\Domain\Domain\Profile\Profile;
 use Packages\Domain\Domain\Profile\ProfileRepositoryInterface;
 
 class ProfileRepository implements ProfileRepositoryInterface
 {
-    public function find(int $ProfileId)
+    public function delete_old_image(string $image_path)
     {
-        $profile = DB::table('profiles')->where('id', $ProfileId)->first();
+        Storage::disk('public')->delete($image_path);
+    }
+
+    public function find(int $UserId)
+    {
+        $profile = DB::table('profiles')->where('id', $UserId)->first();
         return $profile;
     }
 

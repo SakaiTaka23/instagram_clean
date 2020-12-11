@@ -3,6 +3,7 @@
 namespace Packages\Infrastructure\Post;
 
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Storage;
 use Intervention\Image\Facades\Image;
 use Packages\Domain\Domain\Post\Post;
 use Packages\Domain\Domain\Post\PostRepositoryInterface;
@@ -24,6 +25,12 @@ class PostRepository implements PostRepositoryInterface
 
     public function delete_post(int $PostId)
     {
+        $post = DB::table('posts')
+            ->select('post_photo_path')
+            ->where('id', $PostId)
+            ->first();
+        Storage::disk('public')->delete($post->post_photo_path);
+        
         DB::table('posts')
             ->where('id', $PostId)
             ->delete();

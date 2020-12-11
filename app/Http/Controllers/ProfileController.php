@@ -44,12 +44,13 @@ class ProfileController extends Controller
     public function update(Request $request, ProfileUpdateUseCaseInterface $interactor)
     {
         request()->validate([
-            'profile_image' => ['required', 'image'],
+            'profile_image' => ['nullable', 'image'],
             'username' => ['required', 'max:20'],
-            'description' => ['required', 'max:200'],
-            'url' => ['required', 'url', 'max:30'],
+            'description' => ['nullable', 'max:200'],
+            'url' => ['nullable', 'url', 'max:30'],
         ]);
-        $request = new ProfileUpdateRequest($this->auth_id, request('profile_image'), $request['username'], $request['description'], $request['url']);
+
+        $request = new ProfileUpdateRequest($this->auth_id, request('profile_image') ?? null, $request['username'], $request['description'] ?? "", $request['url'] ?? "");
         $interactor->handle($request);
     }
 }

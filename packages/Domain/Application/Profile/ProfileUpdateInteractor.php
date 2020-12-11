@@ -19,8 +19,14 @@ class ProfileUpdateInteractor implements ProfileUpdateUseCaseInterface
 
     public function handle(ProfileUpdateRequest $request)
     {
-        $image = $request->getPhoto();
-        $image_path = $this->profileRepository->storeImage($image);
+        $image_path = $this->profileRepository->find($request->getUserId())->profile_photo_path;
+        if (!is_null($request->getPhoto())) {
+            $this->profileRepository->delete_old_image($image_path);
+
+            $image = $request->getPhoto();
+            $image_path = $this->profileRepository->storeImage($image);
+        }
+
         $profile = new Profile(0, $request->getUserId(), $request->getUsername(), $request->getDescription(), $request->getUrl(), $image_path);
         $this->profileRepository->update($profile);
         $response = new ProfileUpdateResponse($request->getUserId());

@@ -28,7 +28,7 @@
 
                         <div class='form-group'>
                             <label for='profile image'>Profile Image</label>
-                            <input type="file" class="form-control-file" id="profile_image" name="profile_image">
+                            <input type="file" id="profile_image" name="profile_image" accept="image/png,image/jpeg">
 
                             @if ($errors->has('profile_image'))
                             <strong>{{ $errors->first('profile_image') }}</strong>

@@ -271,6 +271,7 @@ url:url,30文字以下
 ## TODO
 
 * viewの作成
-* post-destroy,update,editの権限確認、プロフィール画像・投稿画像の消去・更新時にストレージでも消えるようにする
+* post-destroy,update,editの権限確認
+* プロフィール画像 profile.updateにストレージでも消えるようにする
 * Readmeに全体の構造の詳細を記入
 
