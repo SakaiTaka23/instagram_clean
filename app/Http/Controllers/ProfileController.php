@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Profile;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Packages\UseCase\Profile\Edit\ProfileEditRequest;
@@ -37,6 +38,9 @@ class ProfileController extends Controller
 
     public function show($id, ProfileShowUseCaseInterface $interactor)
     {
+        $profile = Profile::select('user_id')->where('id', $id)->first();
+        $this->authorize('view', $profile);
+
         $request = new ProfileShowRequest($id);
         $interactor->handle($request);
     }

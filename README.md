@@ -211,10 +211,15 @@ url:url,30文字以下
 
 * post-destroy,update,edit で実装
 * modelを使って関連づける必要があるためこのためにPostモデルを作成
+* 返り値は403 となっている 
 
 ### post-destroy,update,edit
 
 User->id === Post->user_id
+
+### post,profile-show
+
+id exists
 
 
 
@@ -282,6 +287,3 @@ User->id === Post->user_id
 ## TODO
 
 * viewの作成
-* post-destroy,update,editの権限確認
-* Readmeに全体の構造の詳細を記入
-

@@ -62,6 +62,9 @@ class PostController extends Controller
 
     public function show($id, PostShowUseCaseInterface $interactor)
     {
+        $post = Post::select('user_id')->where('id', $id)->first();
+        $this->authorize('view', $post);
+
         $request = new PostShowRequest($id);
         $interactor->handle($request);
     }
