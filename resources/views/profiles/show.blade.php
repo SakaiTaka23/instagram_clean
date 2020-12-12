@@ -114,7 +114,7 @@
                     <div class="text-left pl-4 pt-3">
                         <span class="text-gray-700 text-2xl mr-2">{{ $viewModel->profile->username }}</span>
                         <span class="text-base font-semibold text-gray-700 mr-2">
-                            <a href="{{ route('post.edit',[$viewModel->profile->user_id]) }}"
+                            <a href="{{ route('profiles.edit',[$viewModel->profile->user_id]) }}"
                                 class="bg-transparent hover:bg-blue-500 text-gray-700 font-semibold hover:text-white py-2 px-4 border border-gray-600 hover:border-transparent rounded">Edit
                                 Profile</a>
                         </span>

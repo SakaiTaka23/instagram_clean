@@ -287,14 +287,15 @@ id exists
 ## TODO
 
 * viewの作成 テンプレートを弄る→適用
+* profiles.showに投稿数を表示させる
 
 実装済み
 
-profile.index post.index profile.show post.show
+profile.index post.index profile.show post.show post.edit
 
 今から
 
-post.edit post.create profile.edit
+post.create
 
 ![screen_transition](readme_images/screen_transition.jpg)
 

@@ -1,38 +1,20 @@
 <x-app-layout>
+    <div>
+        <div class=" rounded overflow-hidden border w-full lg:w-6/12 md:w-6/12 bg-white mx-3 md:mx-0 lg:mx-0">
+            <img class="w-full bg-cover" src="/storage/{{ $viewModel->post->post_photo_path }}">
+            <div class="px-3 py-2">
+                <div class="pt-1">
+                    <div class="mb-2 text-sm">
+                        <div class="pb-5">
+                            <strong>Created At</strong>{{ $viewModel->post->created_at }}
+                            <strong>Updated At</strong>{{ $viewModel->post->updated_at  }}
+                        </div>
 
-    <x-slot name="header">
-        PostEdit
-    </x-slot>
-
-
-    <div class='w-full overflow-hidden rounded-lg shadow-xs'>
-        <div class='w-full overflow-x-auto'>
-
-            <div class="row">
-                <h1>Edit Post</h1>
-            </div>
-
-            <div class="row">
-                <label for="image" class="col-md-4 col-form-label">Post Image</label>
-                <h1>Image</h1>
-                <img src="/storage/{{ $viewModel->post->post_photo_path }}" class="w-96">
-                <h1>{{ $viewModel->post->created_at }}</h1>
-                <h1>{{ $viewModel->post->updated_at }}</h1>
-            </div>
-
-            <form action="{{ route('post.update',[$viewModel->post->id]) }}" enctype="multipart/form-data"
-                method="POST">
-                @method('PATCH')
-                @csrf
-
-                <div class="row">
-                    <div class="col-8 offset-2">
-
-                        <div class="form-group row">
-                            <label for="caption" class="col-md-4 col-form-label">Post Caption</label>
-
-                            <input id="caption" type="text"
-                                class="form-control{{ $errors->has('caption') ? ' is-invalid' : '' }}" name="caption"
+                        <form action="{{ route('post.update',[$viewModel->post->id]) }}" enctype="multipart/form-data"
+                            method="POST">
+                            @method('PATCH')
+                            @csrf
+                            <input type="text" class="font-medium mr-2" id="caption" name="caption"
                                 value="{{ $viewModel->post->caption }}" autocomplete="caption" autofocus>
 
                             @if ($errors->has('caption'))
@@ -40,17 +22,15 @@
                                 <strong>{{ $errors->first('caption') }}</strong>
                             </span>
                             @endif
-                        </div>
 
-                        <div class="row pt-4">
-                            <button class="btn btn-primary">Submit</button>
-                        </div>
-
+                            <button
+                                class="bg-transparent hover:bg-blue-500 text-gray-700 font-semibold hover:text-white py-2 px-4 border border-gray-600 hover:border-transparent rounded">
+                                Submit
+                            </button>
+                        </form>
                     </div>
                 </div>
-            </form>
+            </div>
         </div>
     </div>
-
-
 </x-app-layout>

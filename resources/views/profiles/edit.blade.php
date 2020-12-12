@@ -1,32 +1,15 @@
 <x-app-layout>
+    <div>
+        <div class=" rounded overflow-hidden border w-full lg:w-6/12 md:w-6/12 bg-white mx-3 md:mx-0 lg:mx-0">
+            <img class="w-full bg-cover" src="/storage/{{ $viewModel->profile->profile_photo_path }}">
+            <div class="px-3 py-2">
+                <div class="pt-1">
+                    <div class="mb-2 text-sm">
+                        <form action="{{ route('profiles.update',[$viewModel->profile->id]) }}"
+                            enctype="multipart/form-data" method="POST">
+                            @method('PATCH')
+                            @csrf
 
-    <x-slot name="header">
-        ProfileEdit
-    </x-slot>
-
-
-    <div class='w-full overflow-hidden rounded-lg shadow-xs'>
-        <div class='w-full overflow-x-auto'>
-
-            <div class="row">
-                <h1>Edit Post</h1>
-            </div>
-
-            <div class="row">
-                <label for="image" class="col-md-4 col-form-label">Post Image</label>
-                <h1>Image</h1>
-                <img src="/storage/{{ $viewModel->profile->profile_photo_path }}" class="w-96">
-            </div>
-
-            <form action="{{ route('profiles.update',[$viewModel->profile->id]) }}" enctype="multipart/form-data"
-                method="POST">
-                @method('PATCH')
-                @csrf
-
-                <div class="row">
-                    <div class="col-8 offset-2">
-
-                        <div class='form-group'>
                             <label for='profile image'>Profile Image</label>
                             <input type="file" id="profile_image" name="profile_image" accept="image/png,image/jpeg">
 
@@ -66,17 +49,15 @@
                             </span>
                             @endif
 
-                            <div class="row pt-4">
-                                <button class="btn btn-primary">Submit</button>
-                            </div>
-
-                        </div>
-
+                            <br>
+                            <button
+                                class="bg-transparent hover:bg-blue-500 text-gray-700 font-semibold hover:text-white py-2 px-4 border border-gray-600 hover:border-transparent rounded">
+                                Submit
+                            </button>
+                        </form>
                     </div>
                 </div>
-            </form>
+            </div>
         </div>
     </div>
-
-
 </x-app-layout>
