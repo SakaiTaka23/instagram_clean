@@ -16,7 +16,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('design_image.index-component');
+    return view('welcome');
 });
 
 Route::middleware(['auth', 'verified'])->get('/dashboard', function () {
@@ -24,6 +24,6 @@ Route::middleware(['auth', 'verified'])->get('/dashboard', function () {
 })->name('dashboard');
 
 Route::group(['prefix' => 'user', 'middleware' => ['auth']], function () {
-    Route::resource('post', PostController::class);
+    Route::resource('post', PostController::class)->except('index');
     Route::resource('profiles', ProfileController::class)->only('edit', 'index', 'show', 'update');
 });
