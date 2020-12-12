@@ -19,11 +19,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::middleware(['auth', 'verified'])->get('/dashboard', function () {
-    return view('dashboard');
-})->name('dashboard');
-
 Route::group(['prefix' => 'user', 'middleware' => ['auth']], function () {
-    Route::resource('post', PostController::class)->except('index');
+    Route::resource('post', PostController::class);
     Route::resource('profiles', ProfileController::class)->only('edit', 'index', 'show', 'update');
 });
