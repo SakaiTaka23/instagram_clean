@@ -21,9 +21,7 @@
     </head>
 
     <body class="flex items-center justify-center" style="background: #edf2f7;">
-        <div>
-            {{ $slot }}
-        </div>
+        {{ $slot }}
 
         @stack('modals')
 
