@@ -38,8 +38,8 @@ class ProfileController extends Controller
 
     public function show($id, ProfileShowUseCaseInterface $interactor)
     {
-        $profile = Profile::select('user_id')->where('id', $id)->first();
-        $this->authorize('view', $profile);
+        // $profile = Profile::select('user_id')->where('id', $id)->first();
+        // $this->authorize('view', $profile);
 
         $request = new ProfileShowRequest($id);
         $interactor->handle($request);

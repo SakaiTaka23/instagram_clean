@@ -16,7 +16,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('index-component');
+    return view('design_image.index-component');
 });
 
 Route::middleware(['auth', 'verified'])->get('/dashboard', function () {

@@ -24,7 +24,7 @@ class PostIndexPresenter implements PostIndexPresenterInterface
             array_push($post_array, $post);
         }
         $viewModel = new PostIndexViewModel($post_array);
-        dd($viewModel);
-        $this->middleware->setData(view('test', compact('viewModel')));
+        // dd($viewModel);
+        $this->middleware->setData(view('posts.index', compact('viewModel')));
     }
 }

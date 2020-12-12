@@ -6,9 +6,9 @@ use App\Http\Models\Profile\Commons\ProfileViewModel;
 
 class ProfileShowViewModel
 {
-    public function __construct(ProfileViewModel $profile,array $post)
+    public function __construct(ProfileViewModel $profile,array $posts)
     {
         $this->profile = $profile;
-        $this->post = $post;
+        $this->posts = $posts;
     }
 }

@@ -22,13 +22,12 @@ class ProfileShowPresenter implements ProfileShowPresenterInterface
         $profile = new ProfileViewModel($profile->id, $profile->user_id, $profile->username, $profile->description, $profile->url, $profile->profile_photo_path);
         $posts = $outputData->getPosts();
         $post_array = [];
-        foreach($posts as $post)
-        {
+        foreach ($posts as $post) {
             $post = new PostViewModelSimple($post->id, $post->post_photo_path);
-            array_push($post_array,$post);
+            array_push($post_array, $post);
         }
-        $viewModel = new ProfileShowViewModel($profile,$post_array);
+        $viewModel = new ProfileShowViewModel($profile, $post_array);
 
-        $this->middleware->setData(view('test', compact('viewModel')));
+        $this->middleware->setData(view('profiles.show', compact('viewModel')));
     }
 }

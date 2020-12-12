@@ -19,7 +19,7 @@ class ProfileIndexInteractor implements ProfileIndexUseCaseInterface
     public function handle(ProfileIndexRequest $request)
     {
         $userId = $request->getUserId();
-        $posts = $this->postRepository->find_from_userid($userId);
+        $posts = $this->postRepository->find_from_userid_simple($userId);
         $response = new ProfileIndexResponse($posts);
         $this->presenter->output($response);
     }

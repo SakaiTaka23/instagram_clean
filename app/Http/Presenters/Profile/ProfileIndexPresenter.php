@@ -17,7 +17,6 @@ class ProfileIndexPresenter implements ProfileIndexPresenterInterface
 
     public function output(ProfileIndexResponse $outputData)
     {
-        dd($outputData);
         $posts = $outputData->getPosts();
         $post_array = [];
         foreach ($posts as $post) {
@@ -25,7 +24,6 @@ class ProfileIndexPresenter implements ProfileIndexPresenterInterface
             array_push($post_array, $post);
         }
         $viewModel = new PostIndexViewModel($post_array);
-        dd($viewModel);
-        $this->middleware->setData(view('test', compact('viewModel')));
+        $this->middleware->setData(view('profiles.index', compact('viewModel')));
     }
 }

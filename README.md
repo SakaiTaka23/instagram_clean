@@ -286,4 +286,15 @@ id exists
 
 ## TODO
 
-* viewの作成
+* viewの作成 テンプレートを弄る→適用
+
+実装済み
+
+profile.index post.index profile.show
+
+今から
+
+post.edit post.show post.create profile.edit
+
+![screen_transition](readme_images/screen_transition.jpg)
+

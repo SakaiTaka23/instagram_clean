@@ -107,6 +107,47 @@
     <!--profile data-->
     <div class="bg-gray-100 h-auto px-48">
 
+        <div class="flex md:flex-row-reverse flex-wrap">
+            <div class="w-full md:w-3/4 p-4 text-center">
+                <div class="text-left pl-4 pt-3">
+                    <span class="text-gray-700 text-2xl mr-2">{{ $viewModel->profile->username }}</span>
+                    <span class="text-base font-semibold text-gray-700 mr-2">
+                        <a href="{{ route('post.edit',[$viewModel->profile->user_id]) }}"
+                            class="bg-transparent hover:bg-blue-500 text-gray-700 font-semibold hover:text-white py-2 px-4 border border-gray-600 hover:border-transparent rounded">Edit
+                            Profile</a>
+                    </span>
+                </div>
+
+                <div class="text-left pl-4 pt-3">
+                    <span class="text-base font-semibold text-gray-700 mr-2">
+                        <b>220</b> posts
+                    </span>
+                    <span class="text-base font-semibold text-gray-700 mr-2">
+                        <b>114</b> followers
+                    </span>
+                    <span class="text-base font-semibold text-gray-700">
+                        <b>200</b> following
+                    </span>
+                </div>
+
+                <div class="text-left pl-4 pt-3">
+                    <p class="text-base font-medium text-gray-700 mr-2">{{ $viewModel->profile->description }}</p>
+                    <a class="text-base font-medium text-gray-700 mr-2"
+                        href="{{ $viewModel->profile->url }}" target="_blank"
+                        rel="noopener noreferrer">{{ $viewModel->profile->url }}</a>
+                </div>
+            </div>
+
+            <div class="w-full md:w-1/4 p-4 text-center">
+                <div class="w-full relative md:w-3/4 text-center mt-8">
+                    <button class="flex rounded-full" id="user-menu" aria-label="User menu" aria-haspopup="true">
+                        <img class="h-40 w-40 rounded-full" src="/storage/{{ $viewModel->profile->profile_photo_path }}"
+                            alt />
+                    </button>
+                </div>
+            </div>
+        </div>
+
         <hr class="border-gray-500 mt-6" />
         <hr class="w-20 border-t-1 ml-64 border-gray-800" />
 
@@ -134,13 +175,12 @@
 
         <div class="flex pt-4">
             @foreach ($viewModel->posts as $post)
-
-            @endforeach
             <div class="flex-1 text-center px-4 py-2 m-2">
                 <a href='{{ route('post.show',[$post->id]) }}'>
                     <img class="w-96" src="/storage/{{ $post->post_photo_path }}">
                 </a>
             </div>
+            @endforeach
         </div>
     </div>
 </x-app-layout>
