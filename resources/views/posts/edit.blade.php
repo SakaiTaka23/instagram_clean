@@ -1,5 +1,5 @@
 <x-app-layout>
-    <div>
+    <div class="flex justify-center">
         <div class=" rounded overflow-hidden border w-full lg:w-6/12 md:w-6/12 bg-white mx-3 md:mx-0 lg:mx-0">
             <img class="w-full bg-cover" src="/storage/{{ $viewModel->post->post_photo_path }}">
             <div class="px-3 py-2">

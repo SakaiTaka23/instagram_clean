@@ -1,13 +1,7 @@
 <x-app-layout>
 
-    <x-slot name="header">
-        PostCreate
-    </x-slot>
-
-
-    <div class='w-full overflow-hidden rounded-lg shadow-xs'>
+    <div class='flex justify-center rounded-lg shadow-xs'>
         <div class='w-full overflow-x-auto'>
-            {{-- {{ $viewModel->infos }} --}}
             <form action="{{ route('post.store') }}" enctype="multipart/form-data" method="POST">
                 @csrf
 
@@ -50,6 +44,5 @@
             </form>
         </div>
     </div>
-
 
 </x-app-layout>
