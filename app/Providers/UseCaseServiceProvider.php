@@ -7,6 +7,7 @@ use Packages\Domain\Application\Post\PostCreateInteractor;
 use Packages\Domain\Application\Post\PostDeleteInteractor;
 use Packages\Domain\Application\Post\PostEditInteractor;
 use Packages\Domain\Application\Post\PostIndexInteractor;
+use Packages\Domain\Application\Post\PostSearchInteractor;
 use Packages\Domain\Application\Post\PostShowInteractor;
 use Packages\Domain\Application\Post\PostStoreInteractor;
 use Packages\Domain\Application\Post\PostUpdateInteractor;
@@ -18,6 +19,7 @@ use Packages\UseCase\Post\Create\PostCreateUseCaseInterface;
 use Packages\UseCase\Post\Delete\PostDeleteUseCaseInterface;
 use Packages\UseCase\Post\Edit\PostEditUseCaseInterface;
 use Packages\UseCase\Post\Index\PostIndexUseCaseInterface;
+use Packages\UseCase\Post\Search\PostSearchUseCaseInterface;
 use Packages\UseCase\Post\Show\PostShowUseCaseInterface;
 use Packages\UseCase\Post\Store\PostStoreUseCaseInterface;
 use Packages\UseCase\Post\Update\PostUpdateUseCaseInterface;
@@ -33,6 +35,7 @@ class UseCaseServiceProvider extends ServiceProvider
         PostDeleteUseCaseInterface::class => PostDeleteInteractor::class,
         PostEditUseCaseInterface::class => PostEditInteractor::class,
         PostIndexUseCaseInterface::class => PostIndexInteractor::class,
+        PostSearchUseCaseInterface::class => PostSearchInteractor::class,
         PostShowUseCaseInterface::class => PostShowInteractor::class,
         PostStoreUseCaseInterface::class => PostStoreInteractor::class,
         PostUpdateUseCaseInterface::class => PostUpdateInteractor::class,

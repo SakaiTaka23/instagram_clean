@@ -13,6 +13,8 @@ use Packages\UseCase\Post\Edit\PostEditRequest;
 use Packages\UseCase\Post\Edit\PostEditUseCaseInterface;
 use Packages\UseCase\Post\Index\PostIndexRequest;
 use Packages\UseCase\Post\Index\PostIndexUseCaseInterface;
+use Packages\UseCase\Post\Search\PostSearchRequest;
+use Packages\UseCase\Post\Search\PostSearchUseCaseInterface;
 use Packages\UseCase\Post\Show\PostShowRequest;
 use Packages\UseCase\Post\Show\PostShowUseCaseInterface;
 use Packages\UseCase\Post\Store\PostStoreUseCaseInterface;
@@ -60,12 +62,13 @@ class PostController extends Controller
         $interactor->handle($request);
     }
 
-    public function search(Request $request)
+    public function search(Request $request,PostSearchUseCaseInterface $interactor)
     {
         request()->validate([
             'search' => ['required', 'max:20'],
         ]);
-        dd($request->search);
+        $request = new PostSearchRequest($request->search);
+        $interactor->handle($request);
     }
 
     public function show($id, PostShowUseCaseInterface $interactor)

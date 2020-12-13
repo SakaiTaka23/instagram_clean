@@ -44,6 +44,20 @@ class PostRepository implements PostRepositoryInterface
             ->delete();
     }
 
+    public function find_from_keyword(string $keyword)
+    {
+        $posts = DB::table('posts')->select('id', 'post_photo_path')
+            ->where('caption', 'like', '%' . $keyword . '%')
+            ->get();
+        return $posts;
+    }
+
+    public function find_from_postid(int $PostId)
+    {
+        $post = DB::table('posts')->where('id', $PostId)->first();
+        return $post;
+    }
+
     public function find_from_userid(int $UserId)
     {
         $post = DB::table('posts')->where('user_id', $UserId)->get();
@@ -53,12 +67,6 @@ class PostRepository implements PostRepositoryInterface
     public function find_from_userid_simple(int $UserId)
     {
         $post = DB::table('posts')->select('id', 'post_photo_path')->where('user_id', $UserId)->get();
-        return $post;
-    }
-
-    public function find_from_postid(int $PostId)
-    {
-        $post = DB::table('posts')->where('id', $PostId)->first();
         return $post;
     }
 
