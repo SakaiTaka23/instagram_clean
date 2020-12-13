@@ -9,12 +9,12 @@
 laravel・データベースの環境(mysql)は持っていることが前提
 
 ```shell
-git clone https://github.com/SakaiTaka23/OrganizeNote-ver2.git
-cd oraganizenote-ver2 
-
-cp .env.example .env
+git clone https://github.com/SakaiTaka23/instagram_clean.git
+cd instagram_clean
 
 composer install
+cp .env.example .env
+
 php artisan key:generate
 データベースを作成
 .envファイルのデータベース、ユーザーネーム、パスワードの修正
@@ -25,6 +25,20 @@ php artisan serve
 ### Laravel Sail
 
 https://laravel.com/docs/8.x/sail
+
+```shell
+git clone https://github.com/SakaiTaka23/instagram_clean.git
+cd instagram_clean
+
+cp .env.example .env
+composer require laravel/sail --dev
+
+sail up -d
+sail artisan key:generate
+sail artisan migrate:fresh
+```
+
+
 
 ```shell
 # 以下をsailとしてアイリアスで保存しておくと便利
