@@ -20,7 +20,7 @@ class PostSearchInteractor implements PostSearchUseCaseInterface
     {
         $keyword = $request->getKeyWord();
         $posts = $this->postRepository->find_from_keyword($keyword);
-        $response = new PostSearchResponse($posts);
+        $response = new PostSearchResponse($keyword,$posts);
         $this->presenter->output($response);
     }
 }

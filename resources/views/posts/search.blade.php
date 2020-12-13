@@ -24,7 +24,16 @@
                 </div>
             </div>
 
+            <div class="flex flex-row justify-center">
+                <p class="text-opacity-100">
+                    Searched Key Word:
+                </p>
+                <p>
+                    {{ $viewModel->keyword }}
+                </p>
+            </div>
+
             <!--post images-->
             @livewire('show-posts',['posts' => $viewModel->posts ])
-    </div>
+        </div>
 </x-app-layout>

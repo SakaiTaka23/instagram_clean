@@ -23,8 +23,7 @@ class PostSearchPresenter implements PostSearchPresenterInterface
             $post = new PostViewModelSimple($post->id, $post->post_photo_path);
             array_push($post_array, $post);
         }
-        $viewModel = new PostSearchViewModel($post_array);
-        // dd($viewModel);
+        $viewModel = new PostSearchViewModel($outputData->getKeyWord(),$post_array);
         $this->middleware->setData(view('posts.search', compact('viewModel')));
     }
 }
