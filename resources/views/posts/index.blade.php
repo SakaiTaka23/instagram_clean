@@ -4,9 +4,6 @@
         <!--profile data-->
         <div class="bg-gray-100 h-auto px-48">
 
-            <hr class="border-gray-500 mt-6" />
-            <hr class="w-20 border-t-1 ml-64 border-gray-800" />
-
             <!--post icon and title-->
             <div class="flex flex-row mt-4 justify-center mr-16">
                 <div class="flex text-gray-700 text-center py-2 m-2 pr-5">

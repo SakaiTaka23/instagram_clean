@@ -286,6 +286,7 @@ id exists
 
 ## TODO
 
-* viewの作成　ランディングページ
 * profiles.showに投稿数を表示させる
+* search 実装
 
+* 権限周りの再確認・最適化

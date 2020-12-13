@@ -3,12 +3,14 @@
         <div class="flex justify-between h-16">
             <div class="flex px-2 lg:px-0">
                 <div class="flex-shrink-0 flex items-center">
-                    <img class="block lg:hidden h-8 w-auto"
-                        src="https://www.instagram.com/static/images/web/mobile_nav_type_logo.png/735145cfe0a4.png"
-                        alt="Workflow logo" />
-                    <img class="hidden lg:block h-8 w-auto"
-                        src="https://www.instagram.com/static/images/web/mobile_nav_type_logo.png/735145cfe0a4.png"
-                        alt="Workflow logo" />
+                    <a href='{{ route('profiles.index') }}'>
+                        <img class="block lg:hidden h-8 w-auto"
+                            src="https://www.instagram.com/static/images/web/mobile_nav_type_logo.png/735145cfe0a4.png"
+                            alt="Workflow logo" />
+                        <img class="hidden lg:block h-8 w-auto"
+                            src="https://www.instagram.com/static/images/web/mobile_nav_type_logo.png/735145cfe0a4.png"
+                            alt="Workflow logo" />
+                    </a>
                 </div>
             </div>
             <div class="flex-1 flex items-center justify-center px-2 lg:ml-12">
@@ -49,55 +51,34 @@
             </div>
             <!-- icons-->
             <div class="lg:ml-4 lg:flex lg:items-center">
-                <button
-                    class="flex-shrink-0 p-1 border-transparent text-gray-700 rounded-full hover:text-gray-600 focus:outline-none focus:text-gray-600 transition duration-150 ease-in-out"
-                    aria-label="Notifications">
-                    <svg class="h-6 w-6" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
-                        stroke="currentColor" viewBox="0 0 24 24">
-                        <path
-                            d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
-                    </svg>
-                </button>
+                <a class="flex-shrink-0 p-1 border-transparent text-gray-700 rounded-full hover:text-gray-600 focus:outline-none focus:text-gray-600 transition duration-150 ease-in-out"
+                    href="{{ route('post.create') }}" aria-label="Notifications">
 
-                <button
-                    class="flex-shrink-0 p-1 border-transparent text-gray-700 rounded-full hover:text-gray-600 focus:outline-none focus:text-gray-600 transition duration-150 ease-in-out"
-                    aria-label="Notifications">
-                    <svg class="h-6 w-6" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
-                        stroke="currentColor" viewBox="0 0 24 24">
-                        <path
-                            d="M16 15v-1a4 4 0 00-4-4H8m0 0l3 3m-3-3l3-3m9 14V5a2 2 0 00-2-2H6a2 2 0 00-2 2v16l4-2 4 2 4-2 4 2z" />
+                    <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" stroke-linecap="round"
+                        stroke-linejoin="round" stroke-width="1.5" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M12 9v3m0 0v3m0-3h3m-3 0H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z" />
                     </svg>
-                </button>
+                </a>
 
-                <button
-                    class="flex-shrink-0 p-1 border-transparent text-gray-700 rounded-full hover:text-gray-600 focus:outline-none focus:text-gray-600 transition duration-150 ease-in-out"
-                    aria-label="Notifications">
-                    <svg class="h-6 w-6" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
-                        stroke="currentColor" viewBox="0 0 24 24">
-                        <path
-                            d="M18.364 5.636l-3.536 3.536m0 5.656l3.536 3.536M9.172 9.172L5.636 5.636m3.536 9.192l-3.536 3.536M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-5 0a4 4 0 11-8 0 4 4 0 018 0z" />
+                <a class="flex-shrink-0 p-1 border-transparent text-gray-700 rounded-full hover:text-gray-600 focus:outline-none focus:text-gray-600 transition duration-150 ease-in-out"
+                    href="{{ route('post.index') }}" aria-label="Notifications">
+                    <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" stroke-linecap="round"
+                        stroke-linejoin="round" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                     </svg>
-                </button>
+                </a>
 
-                <button
-                    class="flex-shrink-0 p-1 border-transparent text-gray-700 rounded-full hover:text-gray-600 focus:outline-none focus:text-gray-600 transition duration-150 ease-in-out"
-                    aria-label="Notifications">
-                    <svg class="h-6 w-6" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
-                        stroke="currentColor" viewBox="0 0 24 24">
-                        <path
-                            d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+                <a class="flex-shrink-0 p-1 border-transparent text-gray-700 rounded-full hover:text-gray-600 focus:outline-none focus:text-gray-600 transition duration-150 ease-in-out"
+                    href="{{ route('post.index') }}" aria-label="Notifications">
+                    <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" stroke-linecap="round"
+                        stroke-linejoin="round" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M5.121 17.804A13.937 13.937 0 0112 16c2.5 0 4.847.655 6.879 1.804M15 10a3 3 0 11-6 0 3 3 0 016 0zm6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
                     </svg>
-                </button>
+                </a>
 
-                <!-- Profile dropdown -->
-                <div class="ml-4 relative flex-shrink-0">
-                    <div>
-                        <button class="flex rounded-full border-gray-700 transition duration-150 ease-in-out"
-                            id="user-menu" aria-label="User menu" aria-haspopup="true">
-                            <img class="h-8 w-8 rounded-full" src="{{ asset('images/default_icon.jpg') }}" alt />
-                        </button>
-                    </div>
-                </div>
             </div>
         </div>
     </div>
