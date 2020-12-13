@@ -21,5 +21,6 @@ Route::get('/', function () {
 
 Route::group(['prefix' => 'user', 'middleware' => ['auth']], function () {
     Route::resource('post', PostController::class);
+    Route::get('search', [PostController::class, 'search'])->name('post.search');
     Route::resource('profiles', ProfileController::class)->only('edit', 'index', 'show', 'update');
 });

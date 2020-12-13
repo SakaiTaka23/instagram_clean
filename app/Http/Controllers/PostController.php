@@ -60,6 +60,14 @@ class PostController extends Controller
         $interactor->handle($request);
     }
 
+    public function search(Request $request)
+    {
+        request()->validate([
+            'search' => ['required', 'max:20'],
+        ]);
+        dd($request->search);
+    }
+
     public function show($id, PostShowUseCaseInterface $interactor)
     {
         $post = Post::select('user_id')->where('id', $id)->first();
