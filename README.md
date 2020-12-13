@@ -6,6 +6,8 @@
 
 ## インストール
 
+### Locally
+
 laravel・データベースの環境(mysql)は持っていることが前提
 
 ```shell
@@ -13,7 +15,7 @@ git clone https://github.com/SakaiTaka23/instagram_clean.git
 cd instagram_clean
 
 composer install
-cp .env.example .env
+cp .env.local.example .env
 
 php artisan key:generate
 データベースを作成
@@ -30,30 +32,14 @@ https://laravel.com/docs/8.x/sail
 git clone https://github.com/SakaiTaka23/instagram_clean.git
 cd instagram_clean
 
-cp .env.example .env
-composer require laravel/sail --dev
+cp .env.sail.example .env
+composer install
 
 sail up -d
+
 sail artisan key:generate
 sail artisan migrate:fresh
 ```
-
-
-
-```shell
-# 以下をsailとしてアイリアスで保存しておくと便利
-./vendor/bin/sail
-
-# 立ち上げ
-sail up
-# バックグラウンドで立ち上げ
-sail up -d
-
-# 停止 
-sail down
-```
-
-
 
 
 
