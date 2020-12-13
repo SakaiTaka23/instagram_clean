@@ -22,6 +22,25 @@ php artisan migrate:fresh
 php artisan serve
 ```
 
+### Laravel Sail
+
+https://laravel.com/docs/8.x/sail
+
+```shell
+# 以下をsailとしてアイリアスで保存しておくと便利
+./vendor/bin/sail
+
+# 立ち上げ
+sail up
+# バックグラウンドで立ち上げ
+sail up -d
+
+# 停止 
+sail down
+```
+
+
+
 
 
 ## ルート
@@ -286,5 +305,4 @@ id exists
 
 ## TODO
 
-* 権限周りの再確認・最適化
-
+* 登録時にメールを送ることができるようにする
