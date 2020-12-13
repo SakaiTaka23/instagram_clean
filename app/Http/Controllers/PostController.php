@@ -62,7 +62,7 @@ class PostController extends Controller
         $interactor->handle($request);
     }
 
-    public function search(Request $request,PostSearchUseCaseInterface $interactor)
+    public function search(Request $request, PostSearchUseCaseInterface $interactor)
     {
         request()->validate([
             'search' => ['required', 'max:20'],
@@ -73,8 +73,11 @@ class PostController extends Controller
 
     public function show($id, PostShowUseCaseInterface $interactor)
     {
-        $post = Post::select('user_id')->where('id', $id)->first();
-        $this->authorize('view', $post);
+        if (!is_numeric($id)) {
+            abort(404);
+        }
+        // $post = Post::select('user_id')->where('id', $id)->first();
+        // $this->authorize('view', $post);
 
         $request = new PostShowRequest($id);
         $interactor->handle($request);

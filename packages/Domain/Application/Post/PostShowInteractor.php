@@ -23,9 +23,12 @@ class PostShowInteractor implements PostShowUseCaseInterface
     {
         $postId = $request->getPostId();
         $post = $this->postRepository->find_from_postid($postId);
-        $post = new Post($post->id, $post->user_id, $post->caption, $post->post_photo_path, $post->created_at, $post->updated_at);
-        $profile = $this->profileRepository->find($post->user_id);
-        $response = new PostShowResponse($profile->user_id, $profile->profile_photo_path, $profile->username, $post);
+
+        if (!is_null($post)) {
+            $post = new Post($post->id, $post->user_id, $post->caption, $post->post_photo_path, $post->created_at, $post->updated_at);
+            $profile = $this->profileRepository->find($post->user_id);
+        }
+        $response = new PostShowResponse($profile->user_id ?? null, $profile->profile_photo_path ?? null, $profile->username ?? null, $post);
         $this->presenter->output($response);
     }
 }

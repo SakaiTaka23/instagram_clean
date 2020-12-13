@@ -37,7 +37,7 @@ class ProfileController extends Controller
 
     public function show($id, ProfileShowUseCaseInterface $interactor)
     {
-        if (is_string($id)) {
+        if (!is_numeric($id)) {
             abort(404);
         }
         $request = new ProfileShowRequest($id);
