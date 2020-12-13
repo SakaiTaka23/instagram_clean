@@ -7,7 +7,7 @@ use App\Http\Models\Profile\Commons\ProfileViewModelSimple;
 
 class PostShowViewModel
 {
-    public function __construct(ProfileViewModelSimple $profile,PostViewModel $post)
+    public function __construct(ProfileViewModelSimple $profile, PostViewModel $post)
     {
         $this->profile = $profile;
         $this->post = $post;

@@ -5,6 +5,7 @@ namespace Packages\Domain\Domain\Post;
 
 interface PostRepositoryInterface
 {
+    public function count_post(int $UserId);
     public function create_post_get_id(Post $post);
     public function delete_post(int $PostId);
     public function find_from_postid(int $PostId);

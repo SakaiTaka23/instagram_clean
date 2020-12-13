@@ -10,6 +10,14 @@ use Packages\Domain\Domain\Post\PostRepositoryInterface;
 
 class PostRepository implements PostRepositoryInterface
 {
+    public function count_post(int $UserId)
+    {
+        $count = DB::table('posts')
+            ->where('user_id', $UserId)
+            ->count();
+        return $count;
+    }
+
     public function create_post_get_id(Post $post)
     {
         $id = DB::table('posts')
@@ -30,7 +38,7 @@ class PostRepository implements PostRepositoryInterface
             ->where('id', $PostId)
             ->first();
         Storage::disk('public')->delete($post->post_photo_path);
-        
+
         DB::table('posts')
             ->where('id', $PostId)
             ->delete();

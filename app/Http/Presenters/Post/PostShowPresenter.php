@@ -18,10 +18,10 @@ class PostShowPresenter implements PostShowPresenterInterface
 
     public function output(PostShowResponse $outputData)
     {
-        $profile = new ProfileViewModelSimple($outputData->UserId,$outputData->profile_photo_path,$outputData->username);
+        $profile = new ProfileViewModelSimple($outputData->UserId, $outputData->profile_photo_path, $outputData->username);
         $post = $outputData->getPost();
         $post = new PostViewModel($post->id, $post->user_id, $post->caption, $post->post_photo_path, $post->created_at, $post->updated_at);
-        $viewModel = new PostShowViewModel($profile,$post);
+        $viewModel = new PostShowViewModel($profile, $post);
         $this->middleware->setData(view('posts.show', compact('viewModel')));
     }
 }

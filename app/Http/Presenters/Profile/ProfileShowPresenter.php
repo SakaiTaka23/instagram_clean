@@ -26,7 +26,7 @@ class ProfileShowPresenter implements ProfileShowPresenterInterface
             $post = new PostViewModelSimple($post->id, $post->post_photo_path);
             array_push($post_array, $post);
         }
-        $viewModel = new ProfileShowViewModel($profile, $post_array);
+        $viewModel = new ProfileShowViewModel($profile, $outputData->getPostCount(), $post_array);
 
         $this->middleware->setData(view('profiles.show', compact('viewModel')));
     }

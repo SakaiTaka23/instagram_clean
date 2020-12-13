@@ -71,7 +71,7 @@
                 </a>
 
                 <a class="flex-shrink-0 p-1 border-transparent text-gray-700 rounded-full hover:text-gray-600 focus:outline-none focus:text-gray-600 transition duration-150 ease-in-out"
-                    href="{{ route('post.index') }}" aria-label="Notifications">
+                    href="{{ route('profile.show') }}" aria-label="Notifications">
                     <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" stroke-linecap="round"
                         stroke-linejoin="round" viewBox="0 0 24 24" stroke="currentColor">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"

@@ -23,9 +23,10 @@ class ProfileShowInteractor implements ProfileShowUseCaseInterface
     {
         $UserId = $request->getUserId();
         $profile = $this->profileRepository->find($UserId);
-        $profile = new Profile($profile->id,$profile->user_id,$profile->username,$profile->description,$profile->url,$profile->profile_photo_path);
+        $profile = new Profile($profile->id, $profile->user_id, $profile->username, $profile->description, $profile->url, $profile->profile_photo_path);
+        $post_count = $this->postRepository->count_post($UserId);
         $posts = $this->postRepository->find_from_userid_simple($UserId);
-        $response = new ProfileShowResponse($profile,$posts);
+        $response = new ProfileShowResponse($profile, $post_count, $posts);
         $this->presenter->output($response);
     }
 }

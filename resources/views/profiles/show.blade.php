@@ -18,13 +18,7 @@
 
                     <div class="text-left pl-4 pt-3">
                         <span class="text-base font-semibold text-gray-700 mr-2">
-                            <b>220</b> posts
-                        </span>
-                        <span class="text-base font-semibold text-gray-700 mr-2">
-                            <b>114</b> followers
-                        </span>
-                        <span class="text-base font-semibold text-gray-700">
-                            <b>200</b> following
+                            <b>{{ $viewModel->post_count }}</b> posts
                         </span>
                     </div>
 
@@ -46,7 +40,6 @@
             </div>
 
             <hr class="border-gray-500 mt-6" />
-            <hr class="w-20 border-t-1 ml-64 border-gray-800" />
 
             <!--post icon and title-->
             <div class="flex flex-row mt-4 justify-center mr-16">
