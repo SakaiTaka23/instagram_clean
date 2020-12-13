@@ -286,7 +286,5 @@ id exists
 
 ## TODO
 
-* search 実装
-
 * 権限周りの再確認・最適化
 

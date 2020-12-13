@@ -7,7 +7,7 @@ use Packages\Domain\Domain\Profile\Profile;
 
 class ProfileShowResponse
 {
-    public function __construct(Profile $profile, int $post_count,Collection $posts)
+    public function __construct(?Profile $profile, int $post_count,?Collection $posts)
     {
         $this->profile = $profile;
         $this->post_count = $post_count;
