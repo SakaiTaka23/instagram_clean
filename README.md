@@ -33,7 +33,12 @@ git clone https://github.com/SakaiTaka23/instagram_clean.git
 cd instagram_clean
 
 cp .env.sail.example .env
-composer install
+
+docker run --rm \
+    -v $(pwd):/opt \
+    -w /opt \
+    laravelsail/php80-composer:latest \
+    composer install
 
 sail up -d
 
