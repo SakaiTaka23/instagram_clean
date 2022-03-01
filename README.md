@@ -21,6 +21,7 @@ php artisan key:generate
 データベースを作成
 .envファイルのデータベース、ユーザーネーム、パスワードの修正
 php artisan migrate:fresh
+php artisan storage:link
 php artisan serve
 ```
 
@@ -44,6 +45,7 @@ sail up -d
 
 sail artisan key:generate
 sail artisan migrate:fresh
+php artisan storage:link
 ```
 
 
